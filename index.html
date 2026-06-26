@@ -92,16 +92,16 @@
   .route-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
   .route-card-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 20px; }
   .route-flow { display: flex; align-items: center; gap: 0; margin-bottom: 20px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
-  .route-node { flex-shrink: 0; text-align: center; min-width: 72px; }
-  .route-node .iata { font-size: 22px; font-weight: 700; color: var(--navy); font-family: 'Cormorant Garamond', serif; line-height: 1; }
+  .route-node { flex-shrink: 0; text-align: center; min-width: 64px; }
+  .route-node .iata { font-size: 20px; font-weight: 700; color: var(--navy); font-family: 'Cormorant Garamond', serif; line-height: 1; }
   .route-node .city { font-size: 10px; color: var(--muted); margin-top: 2px; }
   .route-node .time { font-size: 11px; font-weight: 600; color: var(--ink); margin-top: 4px; }
-  .route-arrow { flex: 1; min-width: 40px; display: flex; flex-direction: column; align-items: center; padding: 0 4px; position: relative; }
+  .route-arrow { flex: 1; min-width: 36px; display: flex; flex-direction: column; align-items: center; padding: 0 3px; position: relative; }
   .route-arrow .arrow-line { width: 100%; height: 2px; background: linear-gradient(90deg, var(--azure), var(--gold)); position: relative; margin: 4px 0 2px; }
   .route-arrow .arrow-line::after { content: '▶'; position: absolute; right: -6px; top: -7px; font-size: 10px; color: var(--gold); }
-  .route-arrow .flight-label { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: var(--azure); white-space: nowrap; }
-  .route-arrow .flight-note { font-size: 10px; color: var(--muted); white-space: nowrap; text-align: center; }
-  .route-arrow .nonstop-badge { background: #ECFDF5; color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 5px; border-radius: 3px; white-space: nowrap; }
+  .route-arrow .flight-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--azure); white-space: nowrap; }
+  .route-arrow .flight-note { font-size: 9.5px; color: var(--muted); white-space: nowrap; text-align: center; }
+  .route-arrow .nonstop-badge { background: #ECFDF5; color: var(--green); font-size: 8.5px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 4px; border-radius: 3px; white-space: nowrap; }
   .route-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid #F0E8D8; }
   .route-stat .stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
   .route-stat .stat-val { font-size: 14px; font-weight: 600; color: var(--navy); }
@@ -163,7 +163,7 @@
 
   <div class="callout good">
     <div class="callout-icon">🌊</div>
-    <div class="callout-text"><strong>No grocery runs, no rental car, fully hands-off — the same promise</strong> Every transfer and excursion uses a private driver, every meal is out or catered, and economy flights are baked into all three tiers. Good and Better both land under the original $4k target. Anyone who wants to upgrade the long transatlantic crossing to premium economy can add ~$1,000/pp individually — see each scenario card below.</div>
+    <div class="callout-text"><strong>No grocery runs, no rental car, fully hands-off — the same promise</strong> Every transfer and excursion uses a private driver, every meal is out or catered, and economy flights are baked into all three tiers. Good and Better both land under $4k. Anyone who wants more comfort on the long transatlantic crossing can add +$1,200/pp for premium economy — individually, without affecting anyone else's cost.</div>
   </div>
 
   <div class="section-header"><span class="section-num">01</span><h2>Best / Better / Good — Choose Your Level</h2></div>
@@ -173,9 +173,9 @@
     <div class="scenario-card">
       <div class="scenario-badge">Best</div>
       <div class="scenario-head"><div class="scenario-name">Option C</div><div class="scenario-tagline">Cala Ponte (Marriott Tribute) · Elevated dining &amp; experiences</div></div>
-      <div class="scenario-total"><div class="price">$4,173</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
+      <div class="scenario-total"><div class="price">$4,056</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
       <div class="scenario-lines">
-        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t)</span><span class="line-val">$1,000</span></div>
+        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t via FRA/MUC)</span><span class="line-val">$883</span></div>
         <div class="scenario-line"><span class="line-label">Lodging, 7 nights — Cala Ponte garden-view king, B&amp;B member rate, 3 rooms</span><span class="line-val">$1,333</span></div>
         <div class="scenario-line"><span class="line-label">Food (all meals out, one celebratory dinner)</span><span class="line-val">$490</span></div>
         <div class="scenario-line"><span class="line-label">Private boat day (premium catamaran, extended hours, lunch aboard)</span><span class="line-val">$240</span></div>
@@ -183,17 +183,17 @@
         <div class="scenario-line"><span class="line-label">Activities (private Lecce guide, wine tasting, spa credit)</span><span class="line-val">$210</span></div>
         <div class="scenario-line"><span class="line-label">Travel insurance</span><span class="line-val">$200</span></div>
         <div class="scenario-line personal"><span class="line-label">Personal spending</span><span class="line-val">$320</span></div>
-        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$4,173</span></div>
+        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$4,056</span></div>
       </div>
-      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic leg to premium economy</span><span class="upg-val">+~$1,000/pp → $5,173</span></div>
-      <div class="scenario-note">Lodging is a real $7,833 quote (3 rooms × $373/night × 7 nights, B&amp;B member rate). Flight figure is from live June 2026 search results — best-priced 1-stop option found. The upgrade is booked individually and doesn't affect the shared group cost.</div>
+      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic legs to premium economy</span><span class="upg-val">+$1,200/pp → $5,256</span></div>
+      <div class="scenario-note">Lodging is a real $7,833 quote (3 rooms × $373/night × 7 nights, B&amp;B member rate). Flights are from live June 2026 search results (~$5,300 for 6, base fare — checked bag fees not yet confirmed). Premium economy upgrade booked individually; doesn't affect anyone else's cost.</div>
     </div>
     <div class="scenario-card recommended">
       <div class="scenario-badge">⭐ Better — Recommended</div>
       <div class="scenario-head"><div class="scenario-name">Option B</div><div class="scenario-tagline">Masseria w/ pool · Dining out, full-day boat charter</div></div>
-      <div class="scenario-total"><div class="price">$3,735</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
+      <div class="scenario-total"><div class="price">$3,618</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
       <div class="scenario-lines">
-        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t)</span><span class="line-val">$1,000</span></div>
+        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t via FRA/MUC)</span><span class="line-val">$883</span></div>
         <div class="scenario-line"><span class="line-label">Lodging, 7 nights (masseria, pool, breakfast incl.)</span><span class="line-val">$1,100</span></div>
         <div class="scenario-line"><span class="line-label">Food (all meals out)</span><span class="line-val">$465</span></div>
         <div class="scenario-line"><span class="line-label">Private boat day (full-day yacht, skipper + hostess, lunch aboard)</span><span class="line-val">$190</span></div>
@@ -201,17 +201,17 @@
         <div class="scenario-line"><span class="line-label">Activities &amp; entries (incl. guided Lecce walk)</span><span class="line-val">$160</span></div>
         <div class="scenario-line"><span class="line-label">Travel insurance</span><span class="line-val">$200</span></div>
         <div class="scenario-line personal"><span class="line-label">Personal spending</span><span class="line-val">$270</span></div>
-        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,735</span></div>
+        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,618</span></div>
       </div>
-      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic leg to premium economy</span><span class="upg-val">+~$1,000/pp → $4,735</span></div>
-      <div class="scenario-note">A real masseria with a pool, dinners out every night, a proper full-day private boat charter. The upgrade is booked individually — doesn't change what anyone else pays.</div>
+      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic legs to premium economy</span><span class="upg-val">+$1,200/pp → $4,818</span></div>
+      <div class="scenario-note">A real masseria with a pool, dinners out every night, a proper full-day private boat charter. Flights are from live June 2026 search results (~$5,300 for 6 base fare). Premium economy upgrade booked individually; doesn't change what anyone else pays.</div>
     </div>
     <div class="scenario-card">
       <div class="scenario-badge">Good</div>
       <div class="scenario-head"><div class="scenario-name">Option A</div><div class="scenario-tagline">Boutique hotel/B&amp;B · Comfortable &amp; simple</div></div>
-      <div class="scenario-total"><div class="price">$3,070</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
+      <div class="scenario-total"><div class="price">$2,953</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
       <div class="scenario-lines">
-        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t)</span><span class="line-val">$1,000</span></div>
+        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t via FRA/MUC)</span><span class="line-val">$883</span></div>
         <div class="scenario-line"><span class="line-label">Lodging, 7 nights (boutique hotel/B&amp;B, breakfast incl.)</span><span class="line-val">$720</span></div>
         <div class="scenario-line"><span class="line-label">Food (all meals out, casual spots)</span><span class="line-val">$350</span></div>
         <div class="scenario-line"><span class="line-label">Private boat day (standard private charter)</span><span class="line-val">$150</span></div>
@@ -219,39 +219,39 @@
         <div class="scenario-line"><span class="line-label">Activities &amp; entries</span><span class="line-val">$100</span></div>
         <div class="scenario-line"><span class="line-label">Travel insurance</span><span class="line-val">$200</span></div>
         <div class="scenario-line personal"><span class="line-label">Personal spending</span><span class="line-val">$270</span></div>
-        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,070</span></div>
+        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$2,953</span></div>
       </div>
-      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic leg to premium economy</span><span class="upg-val">+~$1,000/pp → $4,070</span></div>
-      <div class="scenario-note">A well-rated boutique hotel or B&amp;B, breakfast included, comfortable but unfussy. Still fully hands-off — just less property to lounge in. The upgrade is booked individually and doesn't affect anyone else's cost.</div>
+      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic legs to premium economy</span><span class="upg-val">+$1,200/pp → $4,153</span></div>
+      <div class="scenario-note">A well-rated boutique hotel or B&amp;B, breakfast included, comfortable but unfussy. Still fully hands-off — just less property to lounge in. Premium economy upgrade booked individually; doesn't affect anyone else's cost.</div>
     </div>
   </div>
 
   <div class="callout tip">
     <div class="callout-icon">✅</div>
-    <div class="callout-text"><strong>Good and Better are back under $4k</strong> Economy flights (~$1,000/pp on the best 1-stop option found) bring Good to ~$3,070 and Better to ~$3,735 — both inside the original target. Best clears $4k because of the lodging, not the flights. If anyone wants more comfort on the long crossing, the +~$1,000/pp premium economy upgrade is shown in each card above and can be added individually without affecting what the rest of the group pays.</div>
+    <div class="callout-text"><strong>Good and Better are comfortably under $4k in economy</strong> At ~$883/pp for flights (~$5,300 total for 6, base fare), Good lands at ~$2,953 and Better at ~$3,618 — both well inside the target. Best clears $4k because of the lodging. Anyone wanting more comfort on the transatlantic legs can add +$1,200/pp for premium economy; that's a personal add-on that doesn't change what anyone else owes.</div>
   </div>
 
   <div class="callout tip">
     <div class="callout-icon">😴</div>
-    <div class="callout-text"><strong>On the transatlantic leg: the upgrade option</strong> The RDU–Frankfurt–Bari crossing is roughly 8-9.5 hours. Economy is what's priced in the scenarios above, and it's a perfectly reasonable choice. Premium economy — dedicated cabin, wider seat, real recline, upgraded meals — is available for ~$1,000/pp more and can be booked individually on your own ticket. Everyone is on the same flights either way; cabin is a personal call.</div>
+    <div class="callout-text"><strong>On the transatlantic leg: the upgrade option</strong> The long legs — RDU→Frankfurt (~8.25 hr) outbound and Munich→Newark (~9.5-10 hr) returning — are the ones worth thinking about. Economy is what's priced above. Premium economy (dedicated cabin, wider seat, real recline, upgraded meals) is available for +$1,200/pp and can be booked individually on your own ticket. Everyone lands together regardless of cabin.</div>
   </div>
 
   <div class="callout warn">
     <div class="callout-icon">⚠️</div>
-    <div class="callout-text"><strong>What's still an estimate, not a quote</strong> Other than the Cala Ponte lodging and the flight lines, costs are built from current market listings, not firm bookings. Flight prices are from live June 2026 search results — the best available 1-stop option at time of writing. 2027 schedules haven't all been published yet; prices will move when they are. None of this has gone through Seasen yet — happy to loop her in for a formal agent quote on the masseria and driver side.</div>
+    <div class="callout-text"><strong>What's still an estimate, not a quote</strong> Other than the Cala Ponte lodging and the flight lines, costs are built from current market listings, not firm bookings. Flight prices (~$5,300 economy / ~$12,800 premium economy, for 6) are from live June 2026 search results; 2027 schedules haven't been published yet and prices will move. Checked bag fees aren't confirmed and may add to the flight totals. Non-flight costs haven't gone through Seasen yet — happy to loop her in for a formal agent quote.</div>
   </div>
 
   <hr class="divider">
   <div class="section-header"><span class="section-num">02</span><h2>Getting There — Flights</h2></div>
-  <p class="section-desc">No nonstop from RDU to Bari exists — every option requires one connection. Based on live June 2026 pricing, Lufthansa via Frankfurt is the best-value 1-stop option at ~$1,000/pp all-economy (~$6,000 for 6). Anyone wanting to upgrade the transatlantic leg to premium economy can add ~$1,000/pp on their own ticket.</p>
+  <p class="section-desc">No nonstop from RDU to Bari — every option requires connections. Based on live June 2026 pricing, the best option found is Lufthansa routing: outbound via Frankfurt, return via Munich and Newark. ~$5,300 for 6 in economy (~$883/pp); ~$12,800 for 6 if upgrading the two transatlantic legs to premium economy (+$1,200/pp). Note: outbound has 1 stop (Frankfurt), return has 2 stops (Munich + Newark).</p>
 
   <div class="route-card">
-    <div class="route-card-badge">⭐ Best Value — Lufthansa via Frankfurt</div>
+    <div class="route-card-badge">⭐ Best Value Found — Lufthansa (via FRA outbound / MUC+EWR return)</div>
     <div class="route-card-body">
-      <div class="route-card-title">RDU → FRA → BRI &nbsp;/&nbsp; BRI → FRA → RDU</div>
-      <div class="route-card-sub">Lufthansa · 1 stop each way · ~$1,000/pp all economy · ~$6,000 for 6 · upgrade transatlantic to premium economy +~$1,000/pp individually</div>
+      <div class="route-card-title">RDU → FRA → BRI &nbsp;/&nbsp; BRI → MUC → EWR → RDU</div>
+      <div class="route-card-sub">Lufthansa · ~$883/pp economy (~$5,300 for 6) · +$1,200/pp to upgrade transatlantic legs to premium economy (~$12,800 for 6)</div>
 
-      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Outbound</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Outbound — 1 stop</div>
       <div class="route-flow">
         <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">afternoon</div></div>
         <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">~8.25 hr</div></div>
@@ -260,30 +260,32 @@
         <div class="route-node"><div class="iata">BRI</div><div class="city">Bari</div><div class="time">midday +1</div></div>
       </div>
 
-      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Return</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Return — 2 stops</div>
       <div class="route-flow">
         <div class="route-node"><div class="iata">BRI</div><div class="city">Bari</div><div class="time">morning</div></div>
         <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="flight-note">~2 hr</div></div>
-        <div class="route-node"><div class="iata">FRA</div><div class="city">Frankfurt</div><div class="time">midday</div></div>
-        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">~9.5 hr</div></div>
-        <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">afternoon</div></div>
+        <div class="route-node"><div class="iata">MUC</div><div class="city">Munich</div><div class="time">midday</div></div>
+        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">~9.5-10 hr</div></div>
+        <div class="route-node"><div class="iata">EWR</div><div class="city">Newark</div><div class="time">afternoon</div></div>
+        <div class="route-arrow"><div class="flight-label">domestic</div><div class="arrow-line"></div><div class="flight-note">~1.5 hr</div></div>
+        <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">evening</div></div>
       </div>
 
       <div class="route-stats">
-        <div class="route-stat"><div class="stat-label">Stops each way</div><div class="stat-val">1</div><div class="stat-sub">Clean routing, symmetric</div></div>
-        <div class="route-stat"><div class="stat-label">Transatlantic leg</div><div class="stat-val">~8–9.5 hr</div><div class="stat-sub">Overnight / daytime</div></div>
-        <div class="route-stat"><div class="stat-label">Per person (r/t)</div><div class="stat-val">~$1,000</div><div class="stat-sub">All economy, live pricing</div></div>
-        <div class="route-stat"><div class="stat-label">Group total</div><div class="stat-val">~$6,000</div><div class="stat-sub">6 people, all economy</div></div>
+        <div class="route-stat"><div class="stat-label">Outbound stops</div><div class="stat-val">1</div><div class="stat-sub">via Frankfurt</div></div>
+        <div class="route-stat"><div class="stat-label">Return stops</div><div class="stat-val">2</div><div class="stat-sub">via Munich + Newark</div></div>
+        <div class="route-stat"><div class="stat-label">Economy / person</div><div class="stat-val">~$883</div><div class="stat-sub">~$5,300 for 6, base fare</div></div>
+        <div class="route-stat"><div class="stat-label">Premium eco upgrade</div><div class="stat-val">+$1,200/pp</div><div class="stat-sub">~$12,800 for 6 total</div></div>
       </div>
     </div>
   </div>
 
   <div class="callout warn">
-    <div class="callout-icon">✈️</div>
-    <div class="callout-text"><strong>United option: cleaner outbound, messier return, ~$833/pp more even in economy</strong> United launched a nonstop Newark–Bari (UA380/UA381) for summer 2026 — outbound RDU→EWR→BRI with 1 stop works. But the 2027 direct return (BRI→EWR nonstop) hasn't been published yet, forcing a 2-stop return routing right now. If United re-announces the BRI→EWR nonstop for summer 2027, it becomes competitive again. Watch for fall 2026 schedule announcements.</div>
+    <div class="callout-icon">🧳</div>
+    <div class="callout-text"><strong>Checked bag fees not yet confirmed</strong> The ~$5,300 economy figure is the base fare. Lufthansa's checked bag policy on transatlantic itineraries varies by fare class — first bag is often included in economy on intercontinental routes, but confirm when booking. If fees apply, budget an additional ~$60-100/pp round trip.</div>
   </div>
 
-  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 10px;">Cabin options — transatlantic leg</div>
+  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 10px;">Cabin options — transatlantic legs</div>
   <div class="cabin-table-wrap">
     <table class="cabin-table">
       <thead><tr><th>Cabin</th><th>What you get</th><th>Cost</th><th>Notes</th></tr></thead>
@@ -291,18 +293,18 @@
         <tr class="recommended-row">
           <td><div class="cabin-name">Economy <span class="cabin-badge rec">In estimates</span></div><div class="cabin-seat">Standard seat, ~31" pitch</div></td>
           <td>Standard recline seat, meals, IFE — fine for the crossing, plenty of people do it</td>
-          <td>~$1,000/pp r/t · ~$6,000 for 6</td>
-          <td>What's priced in the scenario totals above. The short hops (RDU→FRA and FRA/BRI→FRA) are both under 2.5 hours — economy is fine for those either way.</td>
+          <td>~$883/pp r/t · ~$5,300 for 6</td>
+          <td>What's priced in the scenario totals above. The short hops (RDU→FRA, BRI→MUC, EWR→RDU) are all under 2.5 hours — economy is fine for those regardless.</td>
         </tr>
         <tr>
           <td><div class="cabin-name">Premium Economy <span class="cabin-badge premium">Individual upgrade</span></div><div class="cabin-seat">Dedicated cabin, wider seat, more recline</div></td>
           <td>Separate cabin, wider seat, more recline, upgraded meals and service — not just extra legroom</td>
-          <td>+~$1,000/pp on top of economy</td>
-          <td>Booked individually on your own ticket. Doesn't affect anyone else's cost. Meaningful difference on a 9-hour leg — dedicated cabin, real sleep position.</td>
+          <td>+$1,200/pp · ~$12,800 for 6 total</td>
+          <td>Applies to the two long legs: RDU→FRA (~8.25 hr) and MUC→EWR (~9.5-10 hr). Booked individually — doesn't affect anyone else's cost.</td>
         </tr>
         <tr>
           <td><div class="cabin-name">Business Class</div><div class="cabin-seat">Lie-flat, direct aisle access</div></td>
-          <td>Lie-flat seat, priority boarding, lounge access at Frankfurt, full bedding</td>
+          <td>Lie-flat seat, priority boarding, lounge access, full bedding</td>
           <td>Significant premium — personal upgrade only</td>
           <td>Booked individually. Doesn't affect the shared group cost.</td>
         </tr>
@@ -312,31 +314,31 @@
 
   <div class="callout tip">
     <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>When to book</strong> The 2027 international schedule opens ~11 months out — May 2027 flights should appear around June–July 2026. Book everyone on the same flights first, then anyone upgrading can change their cabin separately. Everyone lands together regardless of cabin.</div>
+    <div class="callout-text"><strong>When to book</strong> The 2027 international schedule opens ~11 months out — May 2027 flights should appear around June–July 2026. Book everyone on the same flights first; anyone upgrading cabin class can do so on their own ticket. Everyone lands together regardless.</div>
   </div>
 
-  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 12px;">Other carriers with 1-stop options</div>
+  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 12px;">Other carriers worth checking</div>
   <div class="alt-grid">
     <div class="alt-card">
       <div class="carrier">Lufthansa Group</div>
-      <div class="hub">via Frankfurt or Munich</div>
-      <div class="route-line">RDU <span class="arrow">→</span> FRA/MUC <span class="arrow">→</span> BRI</div>
-      <div class="route-line">BRI <span class="arrow">→</span> FRA/MUC <span class="arrow">→</span> RDU</div>
-      <div class="note">Recommended. RDU→FRA is a direct ~8.25 hr flight. Austrian Airlines (Vienna) and Swiss (Zurich) are also Lufthansa Group and may offer similar pricing via their hubs.</div>
+      <div class="hub">via Frankfurt / Munich / Vienna / Zurich</div>
+      <div class="route-line">RDU <span class="arrow">→</span> FRA <span class="arrow">→</span> BRI</div>
+      <div class="route-line">BRI <span class="arrow">→</span> MUC <span class="arrow">→</span> EWR <span class="arrow">→</span> RDU</div>
+      <div class="note">Current best-priced option found. Austrian Airlines and Swiss are also Lufthansa Group and may offer similar or cheaper itineraries through Vienna or Zurich.</div>
     </div>
     <div class="alt-card">
       <div class="carrier">Air France</div>
       <div class="hub">via Paris CDG</div>
       <div class="route-line">RDU <span class="arrow">→</span> CDG <span class="arrow">→</span> BRI</div>
       <div class="route-line">BRI <span class="arrow">→</span> CDG <span class="arrow">→</span> RDU</div>
-      <div class="note">One of the few single-carrier full-route options. Premium economy (Voyageur cabin) is a solid product. CDG layovers can run long — check connection times.</div>
+      <div class="note">One of the few single-carrier full-route options with 1 stop each way. Premium economy (Voyageur cabin) is a solid product. Worth comparing price.</div>
     </div>
     <div class="alt-card">
-      <div class="carrier">United (if 2027 direct returns)</div>
+      <div class="carrier">United (if 2027 route confirmed)</div>
       <div class="hub">via Newark</div>
       <div class="route-line">RDU <span class="arrow">→</span> EWR <span class="arrow">→</span> BRI</div>
       <div class="route-line">BRI <span class="arrow">→</span> EWR <span class="arrow">→</span> RDU</div>
-      <div class="note">Would become competitive if UA381 (BRI→EWR nonstop) is published for summer 2027. Currently more expensive with a messier return routing.</div>
+      <div class="note">United ran a nonstop Newark–Bari in summer 2026. If they re-announce it for 2027, it simplifies the return to 1 stop. Watch for fall 2026 schedule announcements.</div>
     </div>
   </div>
 
@@ -447,7 +449,7 @@
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 1 — Wed, May 12</div>
       <div class="timeline-title">✈️ Fly RDU → Bari, Check In</div>
-      <div class="timeline-desc">Depart Tue evening May 11 from RDU, connect through Frankfurt for the overnight transatlantic leg. Private driver meets the group at Bari airport for the ~45-60 min transfer straight to the hotel — check-in begins night 1 of 7.</div>
+      <div class="timeline-desc">Depart Tue evening May 11 from RDU, connect through Frankfurt for the overnight transatlantic leg to Bari. Private driver meets the group at BRI for the ~45-60 min transfer straight to the hotel — check-in begins night 1 of 7.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
@@ -489,7 +491,7 @@
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 8 — Wed, May 19</div>
       <div class="timeline-title">🛫 Check Out + Fly Home</div>
-      <div class="timeline-desc">Checkout after breakfast, private driver to Bari airport for the morning departure. Short hop to Frankfurt, then the transatlantic leg back to RDU — home by evening.</div>
+      <div class="timeline-desc">Checkout after breakfast, private driver to Bari airport. Short hop to Munich, then the long transatlantic leg to Newark, then connect home to RDU — back by evening.</div>
     </div>
   </div>
 
@@ -537,16 +539,16 @@
   <div class="notes-grid">
     <div class="note-item"><strong>🚐 Book Drivers Early</strong> Private driver demand peaks in May — worth locking in the boat-day transfer and the two excursion days as soon as we have firm dates.</div>
     <div class="note-item"><strong>💳 Cash &amp; Currency</strong> Italy uses euros. Cards are widely accepted, but small trattorias and markets often prefer cash — handy for driver tips too.</div>
-    <div class="note-item"><strong>😴 Cabin Upgrades</strong> Anyone upgrading the transatlantic leg to premium economy can do so on their own ticket after the group books — you'll still be on the same flights, just a different cabin.</div>
+    <div class="note-item"><strong>😴 Cabin Upgrades</strong> Anyone upgrading the transatlantic legs to premium economy does so on their own ticket — everyone still lands together. Confirm bag fee policy when booking.</div>
     <div class="note-item"><strong>🌊 Boat Day Weather Flexibility</strong> Sea conditions can shift the boat day — most operators offer free rescheduling, worth confirming when booking.</div>
     <div class="note-item"><strong>🛂 Passports</strong> Valid 6+ months past return date (past Nov 19, 2027). Renew now if needed — processing backlogs have been long.</div>
-    <div class="note-item"><strong>📋 Next Steps</strong> Pick a tier, then get real quotes on the masseria/hotel and private drivers. Can loop in Seasen or book directly. Book flights as soon as 2027 schedules are published.</div>
+    <div class="note-item"><strong>📋 Next Steps</strong> Pick a tier, get real quotes on masseria/hotel and drivers (can loop in Seasen or book directly), and watch for 2027 flight schedules dropping around June–July 2026.</div>
   </div>
 
 </div>
 <div class="footer">
   Cost estimates prepared June 2026 from live flight search results and current villa/boat charter market rates · Not yet formal quotes<br>
-  All figures in USD; euro-based costs converted at an estimated €1 = $1.10 · Actual costs will vary with exchange rates and final bookings<br>
+  Flight totals are base fares; checked bag fees not yet confirmed · All figures in USD · Euro-based costs converted at an estimated €1 = $1.10<br>
   Questions? Contact Ashley — she's coordinating everything.
 </div>
 </body>
