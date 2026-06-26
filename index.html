@@ -8,8 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --terracotta: #C1502E; --azure: #2E8BB5; --whitewash: #FAF6EF; --olive: #6B7A3A; --gold: #D4A23C; --white: #FAFAFA; --ink: #1C1C1C; --muted: #6B7280; --border: #E3D9C6; --green: #2D6A4F; --navy: #20384A; }
+  :root { --terracotta: #C1502E; --azure: #2E8BB5; --whitewash: #FAF6EF; --gold: #D4A23C; --white: #FAFAFA; --ink: #1C1C1C; --muted: #6B7280; --border: #E3D9C6; --green: #2D6A4F; --navy: #20384A; }
   body { font-family: 'Inter', sans-serif; background: var(--whitewash); color: var(--ink); font-size: 14px; line-height: 1.6; }
+  /* Hero */
   .hero { background: var(--navy); color: var(--white); padding: 56px 48px 48px; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25)); }
   .hero-wave { position: absolute; top: 0; right: 0; width: 340px; height: 100%; opacity: 0.08; background: radial-gradient(ellipse at 80% 50%, var(--terracotta) 0%, transparent 70%); }
@@ -21,71 +22,87 @@
   .hero-meta-item { border-left: 2px solid var(--gold); padding-left: 12px; }
   .hero-meta-item .label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
   .hero-meta-item .value { font-size: 15px; font-weight: 500; }
+  /* Included bar */
   .included-bar { background: var(--azure); color: var(--white); padding: 16px 48px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
   .included-bar .label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; white-space: nowrap; }
   .included-bar .items { display: flex; gap: 24px; flex-wrap: wrap; }
   .included-bar .item { font-size: 13px; display: flex; align-items: center; gap: 6px; }
   .included-bar .item::before { content: '✓'; font-weight: 700; font-size: 12px; color: #BFEFD0; }
+  /* Layout */
   .main { max-width: 960px; margin: 0 auto; padding: 40px 32px; }
   .section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; margin-top: 48px; }
   .section-header:first-of-type { margin-top: 0; }
   .section-num { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 400; color: var(--gold); letter-spacing: 0.08em; flex-shrink: 0; }
   .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.01em; }
   .section-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.7; max-width: 680px; }
-  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 8px; }
-  .scenario-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  .scenario-card.recommended { border-color: var(--azure); border-width: 2px; }
-  .scenario-badge { background: var(--border); color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; text-align: center; }
-  .scenario-card.recommended .scenario-badge { background: var(--azure); color: var(--white); }
-  .scenario-head { padding: 20px 20px 16px; border-bottom: 1px solid var(--border); }
-  .scenario-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 2px; }
-  .scenario-tagline { font-size: 11.5px; color: var(--muted); }
-  .scenario-total { padding: 16px 20px; background: #F4EFE3; border-bottom: 1px solid var(--border); }
-  .scenario-total .price { font-size: 34px; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--navy); line-height: 1; }
-  .scenario-total .price-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
-  .scenario-lines { padding: 16px 20px 12px; }
-  .scenario-line { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px solid #F0E8D8; font-size: 12.5px; }
-  .scenario-line:last-child { border-bottom: none; }
-  .scenario-line .line-label { color: var(--muted); }
-  .scenario-line .line-val { font-weight: 500; font-variant-numeric: tabular-nums; }
-  .scenario-line.personal .line-label { color: var(--ink); font-style: italic; }
-  .scenario-line.total-row .line-label { font-weight: 700; color: var(--navy); }
-  .scenario-line.total-row .line-val { font-weight: 700; color: var(--navy); font-size: 15px; }
-  .scenario-upgrade { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 20px 10px; font-size: 11.5px; color: var(--azure); background: #EFF7FB; border-top: 1px dashed #C5E0F0; }
-  .scenario-upgrade .upg-val { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .scenario-note { padding: 10px 20px 16px; font-size: 11px; color: var(--muted); font-style: italic; }
-  .timeline { position: relative; padding-left: 24px; }
-  .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--azure), var(--terracotta)); }
-  .timeline-item { position: relative; margin-bottom: 22px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
-  .timeline-dot { position: absolute; left: -27px; top: 20px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--white); background: var(--azure); box-shadow: 0 0 0 2px var(--azure); }
-  .timeline-item.final .timeline-dot { background: var(--terracotta); box-shadow: 0 0 0 2px var(--terracotta); }
-  .timeline-when { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azure); margin-bottom: 3px; }
-  .timeline-item.final .timeline-when { color: var(--terracotta); }
-  .timeline-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-  .timeline-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  /* Callouts */
   .callout { border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 12.5px; line-height: 1.65; display: flex; gap: 12px; align-items: flex-start; }
   .callout.warn { background: #FEF3C7; border-left: 3px solid #F59E0B; }
   .callout.tip { background: #ECFDF5; border-left: 3px solid #10B981; }
-  .callout.good { background: #E8F4FB; border-left: 3px solid var(--azure); }
+  .callout.info { background: #E8F4FB; border-left: 3px solid var(--azure); }
   .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
   .callout-text strong { display: block; font-weight: 600; margin-bottom: 3px; font-size: 13px; }
-  .expect-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .expect-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
-  .expect-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-  .expect-card ul { list-style: none; padding: 0; }
-  .expect-card ul li { font-size: 12.5px; color: var(--muted); padding: 3px 0; padding-left: 14px; position: relative; }
-  .expect-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
-  .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .note-item { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; font-size: 12px; color: var(--muted); }
-  .note-item strong { display: block; color: var(--ink); font-size: 12.5px; margin-bottom: 3px; }
-  .lodging-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .lodging-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
-  .lodging-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
-  .lodging-card .ltag { font-size: 11px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-  .lodging-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
-  .footer { margin-top: 56px; padding: 24px 32px; background: var(--navy); color: rgba(255,255,255,0.5); font-size: 11px; text-align: center; line-height: 1.7; }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
-  /* ── Flights section ── */
+  /* Shared costs table */
+  .costs-table-wrap { margin: 0 0 28px; }
+  table.costs-table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  table.costs-table th { background: var(--navy); color: var(--white); font-weight: 600; padding: 10px 16px; text-align: left; font-size: 11px; letter-spacing: 0.06em; }
+  table.costs-table th:last-child { text-align: right; }
+  table.costs-table td { padding: 9px 16px; border-bottom: 1px solid #F0E8D8; font-size: 12.5px; color: var(--muted); }
+  table.costs-table td:first-child { color: var(--ink); }
+  table.costs-table td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--navy); }
+  table.costs-table tr:last-child td { border-bottom: none; }
+  table.costs-table .total-row td { background: #F4EFE3; font-weight: 700; color: var(--navy); border-top: 2px solid var(--border); }
+  /* Tier sections */
+  .tier-section { margin-bottom: 28px; }
+  .tier-header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .tier-header-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+  .tier-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .tier-subhead { font-size: 11.5px; color: var(--muted); font-style: italic; margin-bottom: 14px; }
+  .scenario-grid-1 { display: grid; grid-template-columns: 1fr; }
+  .scenario-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  /* Scenario cards */
+  .scenario-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .scenario-card.recommended { border-color: var(--azure); border-width: 2px; }
+  .scenario-card.best-card { border-color: var(--gold); border-width: 2px; }
+  .scenario-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; text-align: center; background: var(--border); color: var(--muted); }
+  .scenario-card.recommended .scenario-badge { background: var(--azure); color: var(--white); }
+  .scenario-card.best-card .scenario-badge { background: var(--gold); color: var(--white); }
+  .scenario-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); }
+  .scenario-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 3px; line-height: 1.2; }
+  .scenario-tagline { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .scenario-total { padding: 14px 20px; background: #F4EFE3; border-bottom: 1px solid var(--border); }
+  .scenario-total .price { font-size: 36px; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--navy); line-height: 1; }
+  .scenario-total .price-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .scenario-lines { padding: 14px 20px 10px; }
+  .scenario-line { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px solid #F0E8D8; font-size: 12px; gap: 8px; }
+  .scenario-line:last-child { border-bottom: none; }
+  .scenario-line .line-label { color: var(--muted); }
+  .scenario-line .line-val { font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .scenario-line.lodging-row .line-label { color: var(--ink); font-weight: 600; }
+  .scenario-line.lodging-row .line-val { color: var(--navy); font-weight: 700; }
+  .scenario-line.total-row .line-label { font-weight: 700; color: var(--navy); font-size: 13px; }
+  .scenario-line.total-row .line-val { font-weight: 700; color: var(--navy); font-size: 15px; }
+  .scenario-upgrade { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 20px 10px; font-size: 11.5px; color: var(--azure); background: #EFF7FB; border-top: 1px dashed #C5E0F0; gap: 8px; }
+  .scenario-upgrade .upg-val { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .scenario-note { padding: 10px 20px 16px; font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.6; }
+  /* Property cards */
+  .prop-tier-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); display: flex; align-items: center; gap: 12px; margin-bottom: 4px; margin-top: 28px; }
+  .prop-tier-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .prop-subhead { font-size: 11.5px; color: var(--muted); font-style: italic; margin-bottom: 12px; }
+  .prop-grid-1 { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .prop-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .prop-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
+  .prop-card.best-prop { border-color: var(--gold); border-width: 2px; }
+  .prop-card.better-prop { border-color: var(--azure); }
+  .prop-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--navy); margin-bottom: 2px; line-height: 1.2; }
+  .prop-tier-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); display: block; margin-bottom: 10px; }
+  .prop-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+  .prop-card p:last-of-type { margin-bottom: 0; }
+  .prop-facts { margin-top: 12px; padding-top: 12px; border-top: 1px solid #F0E8D8; display: flex; flex-direction: column; gap: 5px; }
+  .prop-fact { font-size: 12px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
+  .prop-fact .fi { flex-shrink: 0; line-height: 1.6; }
+  .prop-fact b { color: var(--ink); font-weight: 600; }
+  /* Flights */
   .route-card { background: var(--white); border: 2px solid var(--azure); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
   .route-card-badge { background: var(--azure); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 16px; display: flex; align-items: center; gap: 6px; }
   .route-card-body { padding: 20px 24px; }
@@ -96,12 +113,12 @@
   .route-node .iata { font-size: 20px; font-weight: 700; color: var(--navy); font-family: 'Cormorant Garamond', serif; line-height: 1; }
   .route-node .city { font-size: 10px; color: var(--muted); margin-top: 2px; }
   .route-node .time { font-size: 11px; font-weight: 600; color: var(--ink); margin-top: 4px; }
-  .route-arrow { flex: 1; min-width: 36px; display: flex; flex-direction: column; align-items: center; padding: 0 3px; position: relative; }
+  .route-arrow { flex: 1; min-width: 36px; display: flex; flex-direction: column; align-items: center; padding: 0 3px; }
   .route-arrow .arrow-line { width: 100%; height: 2px; background: linear-gradient(90deg, var(--azure), var(--gold)); position: relative; margin: 4px 0 2px; }
   .route-arrow .arrow-line::after { content: '▶'; position: absolute; right: -6px; top: -7px; font-size: 10px; color: var(--gold); }
   .route-arrow .flight-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--azure); white-space: nowrap; }
-  .route-arrow .flight-note { font-size: 9.5px; color: var(--muted); white-space: nowrap; text-align: center; }
-  .route-arrow .nonstop-badge { background: #ECFDF5; color: var(--green); font-size: 8.5px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 4px; border-radius: 3px; white-space: nowrap; }
+  .route-arrow .flight-note { font-size: 9.5px; color: var(--muted); white-space: nowrap; }
+  .route-arrow .nonstop-badge { background: #ECFDF5; color: var(--green); font-size: 8.5px; font-weight: 700; padding: 2px 4px; border-radius: 3px; white-space: nowrap; }
   .route-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid #F0E8D8; }
   .route-stat .stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
   .route-stat .stat-val { font-size: 14px; font-weight: 600; color: var(--navy); }
@@ -109,11 +126,12 @@
   .cabin-table-wrap { overflow-x: auto; margin: 16px 0; }
   table.cabin-table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
   table.cabin-table th { background: var(--navy); color: var(--white); font-weight: 600; padding: 11px 14px; text-align: left; font-size: 11px; letter-spacing: 0.06em; }
-  table.cabin-table td { padding: 10px 14px; border-bottom: 1px solid #F0E8D8; vertical-align: top; }
+  table.cabin-table td { padding: 10px 14px; border-bottom: 1px solid #F0E8D8; vertical-align: top; font-size: 12.5px; color: var(--muted); }
+  table.cabin-table td:first-child { color: var(--ink); }
   table.cabin-table tr:last-child td { border-bottom: none; }
   table.cabin-table .recommended-row td { background: #EFF7FB; }
   .cabin-name { font-weight: 600; color: var(--navy); }
-  .cabin-seat { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+  .cabin-seat { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .cabin-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
   .cabin-badge.rec { background: var(--azure); color: var(--white); }
   .cabin-badge.premium { background: var(--gold); color: var(--white); }
@@ -124,432 +142,559 @@
   .alt-card .route-line { font-size: 12px; color: var(--ink); padding: 2px 0; }
   .alt-card .route-line .arrow { color: var(--gold); font-size: 10px; }
   .alt-card .note { font-size: 11px; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid #F0E8D8; font-style: italic; }
+  /* Food / expect */
+  .expect-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .expect-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .expect-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .expect-card ul { list-style: none; padding: 0; }
+  .expect-card ul li { font-size: 12.5px; color: var(--muted); padding: 3px 0; padding-left: 14px; position: relative; }
+  .expect-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--azure), var(--terracotta)); }
+  .timeline-item { position: relative; margin-bottom: 20px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; }
+  .timeline-dot { position: absolute; left: -27px; top: 20px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--white); background: var(--azure); box-shadow: 0 0 0 2px var(--azure); }
+  .timeline-item.final .timeline-dot { background: var(--terracotta); box-shadow: 0 0 0 2px var(--terracotta); }
+  .timeline-when { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azure); margin-bottom: 3px; }
+  .timeline-item.final .timeline-when { color: var(--terracotta); }
+  .timeline-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+  .timeline-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  /* Notes */
+  .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .note-item { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; font-size: 12px; color: var(--muted); }
+  .note-item strong { display: block; color: var(--ink); font-size: 12.5px; margin-bottom: 3px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  .footer { margin-top: 56px; padding: 24px 32px; background: var(--navy); color: rgba(255,255,255,0.5); font-size: 11px; text-align: center; line-height: 1.7; }
   @media (max-width: 700px) {
     .hero { padding: 36px 24px 32px; } .hero h1 { font-size: 36px; } .included-bar { padding: 14px 24px; }
-    .main { padding: 28px 18px; } .scenario-grid, .expect-grid, .notes-grid, .lodging-grid, .alt-grid { grid-template-columns: 1fr; }
+    .main { padding: 28px 18px; }
+    .scenario-grid-2, .prop-grid-2, .expect-grid, .notes-grid, .alt-grid { grid-template-columns: 1fr; }
     .route-stats { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
 <body>
+
 <div class="hero">
   <div class="hero-wave"></div>
-  <div class="hero-eyebrow">Nichole's 40th Birthday Trip · Plan B</div>
+  <div class="hero-eyebrow">Nichole's 40th Birthday Trip</div>
   <h1>Puglia, <em>the heel of the boot</em></h1>
-  <p class="hero-sub">A 7-day trip for 6 through Italy's Adriatic coast — whitewashed hill towns, trulli countryside, and a private day on the water.</p>
+  <p class="hero-sub">A 7-night trip for 6 through Italy's Adriatic coast — trulli countryside, whitewashed hill towns, sea caves, and a private day on the water.</p>
   <div class="hero-meta">
     <div class="hero-meta-item"><div class="label">Dates</div><div class="value">May 12–19, 2027 (Wed–Wed, 7 nights)</div></div>
-    <div class="hero-meta-item"><div class="label">Group</div><div class="value">6 people</div></div>
+    <div class="hero-meta-item"><div class="label">Group</div><div class="value">6 people, 3 rooms</div></div>
     <div class="hero-meta-item"><div class="label">Flying from</div><div class="value">RDU → BRI (Bari)</div></div>
-    <div class="hero-meta-item"><div class="label">Base region</div><div class="value">Valle d'Itria / Ostuni</div></div>
+    <div class="hero-meta-item"><div class="label">Home base</div><div class="value">Valle d'Itria / Adriatic coast</div></div>
   </div>
 </div>
+
 <div class="included-bar">
   <div class="label">Every option includes</div>
   <div class="items">
-    <span class="item">Round-trip flights RDU–BRI</span>
+    <span class="item">Round-trip flights RDU–BRI (economy)</span>
     <span class="item">Private drivers for every transfer &amp; excursion</span>
-    <span class="item">Private boat day (skipper + hostess)</span>
+    <span class="item">Full-day private boat charter (skipper + hostess + lunch)</span>
+    <span class="item">Breakfast every morning (B&amp;B rate)</span>
+    <span class="item">No cooking, no driving, no repacking</span>
     <span class="item">Travel insurance</span>
-    <span class="item">All meals &amp; activities — no cooking, no driving</span>
   </div>
 </div>
+
 <div class="main">
 
-  <div class="callout good">
+  <div class="callout info">
     <div class="callout-icon">📅</div>
-    <div class="callout-text"><strong>Dates: Wed, May 12 – Wed, May 19, 2027 — a full 7 nights</strong> Mother's Day 2027 is Sunday, May 9 and Memorial Day weekend is May 29–31 — this window clears both. One hotel as the true home base for all 7 nights, no repacking.</div>
+    <div class="callout-text"><strong>Dates: Wed, May 12 – Wed, May 19, 2027 — 7 nights</strong> Mother's Day 2027 is Sunday, May 9 and Memorial Day weekend is May 29–31 — this window clears both. One hotel the entire time; no repacking. Departure from RDU the evening of Tue, May 11; arrive Bari midday Wed, May 12.</div>
   </div>
 
-  <div class="callout good">
-    <div class="callout-icon">🌊</div>
-    <div class="callout-text"><strong>No grocery runs, no rental car, fully hands-off — the same promise</strong> Every transfer and excursion uses a private driver, every meal is out or catered, and economy flights are baked into all three tiers. Good and Better both land under $4k. Anyone who wants more comfort on the long transatlantic crossing can add +$1,200/pp for premium economy — individually, without affecting anyone else's cost.</div>
+  <div class="callout info">
+    <div class="callout-icon">🚐</div>
+    <div class="callout-text"><strong>Fully hands-off — the same promise as Costa Rica</strong> Private drivers handle every airport transfer, every excursion day, and every evening dinner run. No rental car, no designated driver. The pool days at the property need no transport at all. All of this is already in the cost estimates below.</div>
   </div>
 
-  <div class="section-header"><span class="section-num">01</span><h2>Best / Better / Good — Choose Your Level</h2></div>
-  <p class="section-desc">All three options follow the same 7-night stay at one hotel/masseria base in the Valle d'Itria/Adriatic coast, mixing excursion days with chill pool days, anchored by one private boat day. What changes is the property, the dining level, and the polish on transfers. The Best-tier lodging figure is a real Marriott member rate; flight figures are from live June 2026 search results. Everything else is a researched estimate, not yet a locked quote.</p>
+  <div class="section-header"><span class="section-num">01</span><h2>Best / Better / Good — Pick Your Level</h2></div>
+  <p class="section-desc">Three price tiers, five specific properties. Two options in the Good tier, two in Better, one in Best. All seven nights are at a single property — the only thing that changes between tiers is which one. The shared costs table below shows what every scenario has in common. The scenario cards below show how the lodging choice shifts the total.</p>
 
-  <div class="scenario-grid">
-    <div class="scenario-card">
-      <div class="scenario-badge">Best</div>
-      <div class="scenario-head"><div class="scenario-name">Option C</div><div class="scenario-tagline">Cala Ponte (Marriott Tribute) · Elevated dining &amp; experiences</div></div>
-      <div class="scenario-total"><div class="price">$4,056</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
-      <div class="scenario-lines">
-        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t via FRA/MUC)</span><span class="line-val">$883</span></div>
-        <div class="scenario-line"><span class="line-label">Lodging, 7 nights — Cala Ponte garden-view king, B&amp;B member rate, 3 rooms</span><span class="line-val">$1,333</span></div>
-        <div class="scenario-line"><span class="line-label">Food (all meals out, one celebratory dinner)</span><span class="line-val">$490</span></div>
-        <div class="scenario-line"><span class="line-label">Private boat day (premium catamaran, extended hours, lunch aboard)</span><span class="line-val">$240</span></div>
-        <div class="scenario-line"><span class="line-label">Private drivers (priority vehicles, on-call evenings)</span><span class="line-val">$380</span></div>
-        <div class="scenario-line"><span class="line-label">Activities (private Lecce guide, wine tasting, spa credit)</span><span class="line-val">$210</span></div>
-        <div class="scenario-line"><span class="line-label">Travel insurance</span><span class="line-val">$200</span></div>
-        <div class="scenario-line personal"><span class="line-label">Personal spending</span><span class="line-val">$320</span></div>
-        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$4,056</span></div>
+  <div class="costs-table-wrap">
+    <table class="costs-table">
+      <thead><tr><th>What's in every scenario — same across all tiers</th><th>Per person</th></tr></thead>
+      <tbody>
+        <tr><td>Flights — economy, RDU→BRI round trip (base fare; bag fees TBD — Lufthansa intercontinental economy typically includes 1 checked bag)</td><td>$900</td></tr>
+        <tr><td>Food &amp; drinks — 7 days on B&amp;B basis: breakfasts included at hotel; 7 dinners, 3 lunches out on excursion days, daily coffees &amp; aperitivo</td><td>$500</td></tr>
+        <tr><td>Private boat day — full-day charter, skipper + hostess, aperitivo &amp; lunch aboard, sea caves Polignano to Monopoli</td><td>$300</td></tr>
+        <tr><td>Private drivers — BRI airport transfers (arrival &amp; departure) + 3 full excursion days + evening dinner runs from rural properties</td><td>$350</td></tr>
+        <tr><td>Activities &amp; entries — private Lecce walking guide, wine/olive oil tasting, entry fees (Alberobello, etc.)</td><td>$100</td></tr>
+        <tr><td>Travel insurance</td><td>$200</td></tr>
+        <tr><td>Personal spending — souvenirs, tuk-tuks, tips, extras</td><td>$300</td></tr>
+        <tr class="total-row"><td>Shared subtotal — identical across all five properties</td><td>$2,650</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────── BEST ─────── -->
+  <div class="tier-section">
+    <div class="tier-header"><span class="tier-header-label">Best</span></div>
+    <p class="tier-subhead">One property. The complete package — cave spa, two pools, private beach, shuttle to the village for dinner. About $400–500 more per person than the Better tier.</p>
+    <div class="scenario-grid-1">
+      <div class="scenario-card best-card">
+        <div class="scenario-badge">Best — Masseria Torre Coccaro · Savelletri di Fasano</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Masseria Torre Coccaro</div>
+          <div class="scenario-tagline">Savelletri di Fasano · Leading Hotels of the World · 16th-century fortified masseria among ancient olive groves</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$4,460</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging — 3 rooms × $517/night × 7 nights ÷ 6 people</span><span class="line-val">$1,810</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,650</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$4,460</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on transatlantic legs (personal)</span><span class="upg-val">+$1,200/pp → $5,660</span></div>
+        <div class="scenario-note">Aveda spa in a natural cave; two pools (outdoor + heated indoor); private beach club via free shuttle May–Sept; free shuttle to Savelletri village for seafood dinners. On-site restaurant Egnathia uses produce from the masseria's own organic farm. LHW member property. Rate is from the 2024 published medium-season rate sheet (€470/night); 2027 pricing TBD — confirm directly before committing.</div>
       </div>
-      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic legs to premium economy</span><span class="upg-val">+$1,200/pp → $5,256</span></div>
-      <div class="scenario-note">Lodging is a real $7,833 quote (3 rooms × $373/night × 7 nights, B&amp;B member rate). Flights are from live June 2026 search results (~$5,300 for 6, base fare — checked bag fees not yet confirmed). Premium economy upgrade booked individually; doesn't affect anyone else's cost.</div>
-    </div>
-    <div class="scenario-card recommended">
-      <div class="scenario-badge">⭐ Better — Recommended</div>
-      <div class="scenario-head"><div class="scenario-name">Option B</div><div class="scenario-tagline">Masseria w/ pool · Dining out, full-day boat charter</div></div>
-      <div class="scenario-total"><div class="price">$3,618</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
-      <div class="scenario-lines">
-        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t via FRA/MUC)</span><span class="line-val">$883</span></div>
-        <div class="scenario-line"><span class="line-label">Lodging, 7 nights (masseria, pool, breakfast incl.)</span><span class="line-val">$1,100</span></div>
-        <div class="scenario-line"><span class="line-label">Food (all meals out)</span><span class="line-val">$465</span></div>
-        <div class="scenario-line"><span class="line-label">Private boat day (full-day yacht, skipper + hostess, lunch aboard)</span><span class="line-val">$190</span></div>
-        <div class="scenario-line"><span class="line-label">Private drivers (airport transfers + 3 excursion days + evenings)</span><span class="line-val">$350</span></div>
-        <div class="scenario-line"><span class="line-label">Activities &amp; entries (incl. guided Lecce walk)</span><span class="line-val">$160</span></div>
-        <div class="scenario-line"><span class="line-label">Travel insurance</span><span class="line-val">$200</span></div>
-        <div class="scenario-line personal"><span class="line-label">Personal spending</span><span class="line-val">$270</span></div>
-        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,618</span></div>
-      </div>
-      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic legs to premium economy</span><span class="upg-val">+$1,200/pp → $4,818</span></div>
-      <div class="scenario-note">A real masseria with a pool, dinners out every night, a proper full-day private boat charter. Flights are from live June 2026 search results (~$5,300 for 6 base fare). Premium economy upgrade booked individually; doesn't change what anyone else pays.</div>
-    </div>
-    <div class="scenario-card">
-      <div class="scenario-badge">Good</div>
-      <div class="scenario-head"><div class="scenario-name">Option A</div><div class="scenario-tagline">Boutique hotel/B&amp;B · Comfortable &amp; simple</div></div>
-      <div class="scenario-total"><div class="price">$2,953</div><div class="price-label">estimated per person, all-in (economy flights)</div></div>
-      <div class="scenario-lines">
-        <div class="scenario-line"><span class="line-label">Flights (economy, RDU–BRI r/t via FRA/MUC)</span><span class="line-val">$883</span></div>
-        <div class="scenario-line"><span class="line-label">Lodging, 7 nights (boutique hotel/B&amp;B, breakfast incl.)</span><span class="line-val">$720</span></div>
-        <div class="scenario-line"><span class="line-label">Food (all meals out, casual spots)</span><span class="line-val">$350</span></div>
-        <div class="scenario-line"><span class="line-label">Private boat day (standard private charter)</span><span class="line-val">$150</span></div>
-        <div class="scenario-line"><span class="line-label">Private drivers (airport transfers + 3 excursion days)</span><span class="line-val">$280</span></div>
-        <div class="scenario-line"><span class="line-label">Activities &amp; entries</span><span class="line-val">$100</span></div>
-        <div class="scenario-line"><span class="line-label">Travel insurance</span><span class="line-val">$200</span></div>
-        <div class="scenario-line personal"><span class="line-label">Personal spending</span><span class="line-val">$270</span></div>
-        <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$2,953</span></div>
-      </div>
-      <div class="scenario-upgrade"><span>✈️ Upgrade transatlantic legs to premium economy</span><span class="upg-val">+$1,200/pp → $4,153</span></div>
-      <div class="scenario-note">A well-rated boutique hotel or B&amp;B, breakfast included, comfortable but unfussy. Still fully hands-off — just less property to lounge in. Premium economy upgrade booked individually; doesn't affect anyone else's cost.</div>
     </div>
   </div>
 
-  <div class="callout tip">
-    <div class="callout-icon">✅</div>
-    <div class="callout-text"><strong>Good and Better are comfortably under $4k in economy</strong> At ~$883/pp for flights (~$5,300 total for 6, base fare), Good lands at ~$2,953 and Better at ~$3,618 — both well inside the target. Best clears $4k because of the lodging. Anyone wanting more comfort on the transatlantic legs can add +$1,200/pp for premium economy; that's a personal add-on that doesn't change what anyone else owes.</div>
+  <!-- ─────── BETTER ─────── -->
+  <div class="tier-section">
+    <div class="tier-header"><span class="tier-header-label">⭐ Better — Recommended</span></div>
+    <p class="tier-subhead">Two options at similar prices, completely different experiences. Cala Ponte is a coastal resort near Polignano — strong pool, easy town access by tuk-tuk. La Sommità is inside Ostuni's historic center — the only option in any tier where you walk to dinner.</p>
+    <div class="scenario-grid-2">
+      <div class="scenario-card recommended">
+        <div class="scenario-badge">Better · Resort / Coastal · Polignano</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Cala Ponte</div>
+          <div class="scenario-tagline">Polignano a Mare · Marriott Tribute Portfolio · 5-star resort, Adriatic coast</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,956</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging — 3 rooms × $373/night × 7 nights ÷ 6 people</span><span class="line-val">$1,306</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,650</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,956</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on transatlantic legs (personal)</span><span class="upg-val">+$1,200/pp → $5,156</span></div>
+        <div class="scenario-note">Rate confirmed: $373/room/night, garden-view king, B&amp;B, 7+ night minimum ($7,833 total for 3 rooms). Full resort pool, Hedoné restaurant, Otium lounge bar. 5-min tuk-tuk to Polignano centro storico. Marina right next door — ideal boat day departure. 1km to San Vito public beach. Request garden-view rooms away from the SS16 highway at booking (noise flagged in some reviews).</div>
+      </div>
+      <div class="scenario-card recommended">
+        <div class="scenario-badge">Better · Urban / Walkable · Ostuni</div>
+        <div class="scenario-head">
+          <div class="scenario-name">La Sommità</div>
+          <div class="scenario-tagline">Ostuni centro storico · Relais &amp; Châteaux · 16th-century palazzo inside Ostuni's pedestrian historic center</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$4,050</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging — 3 rooms × ~$400/night × 7 nights ÷ 6 people</span><span class="line-val">$1,400</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,650</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$4,050</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on transatlantic legs (personal)</span><span class="upg-val">+$1,200/pp → $5,250</span></div>
+        <div class="scenario-note">The only property in any tier where you walk out the front door into a town. Ostuni's restaurants, bars, and piazza are steps away. Michelin-starred Cielo restaurant on-site. Turkish hammam spa. Tuk-tuk service late nights. Pool is small — better for a dip than a full lounging day. Beach club passes available, ~12km away (private driver). Rate is estimated; confirm directly.</div>
+      </div>
+    </div>
   </div>
 
-  <div class="callout tip">
-    <div class="callout-icon">😴</div>
-    <div class="callout-text"><strong>On the transatlantic leg: the upgrade option</strong> The long legs — RDU→Frankfurt (~8.25 hr) outbound and Munich→Newark (~9.5-10 hr) returning — are the ones worth thinking about. Economy is what's priced above. Premium economy (dedicated cabin, wider seat, real recline, upgraded meals) is available for +$1,200/pp and can be booked individually on your own ticket. Everyone lands together regardless of cabin.</div>
+  <!-- ─────── GOOD ─────── -->
+  <div class="tier-section">
+    <div class="tier-header"><span class="tier-header-label">Good</span></div>
+    <p class="tier-subhead">Two countryside options — both rural (private driver for evenings out, no walkability to towns), different parts of Puglia, different personalities. Both have real pools, restaurants, and bars on-site.</p>
+    <div class="scenario-grid-2">
+      <div class="scenario-card">
+        <div class="scenario-badge">Good · Near Monopoli · Relais &amp; Châteaux</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Il Melograno</div>
+          <div class="scenario-tagline">Monopoli area · Relais &amp; Châteaux · First masseria in Italy to host guests — 400 years of history</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,497</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging — 3 rooms × ~$242/night × 7 nights ÷ 6 people</span><span class="line-val">$847</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,650</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,497</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on transatlantic legs (personal)</span><span class="upg-val">+$1,200/pp → $4,697</span></div>
+        <div class="scenario-note">May is their cheapest season — rates typically $220–280/room/night; $242 used here. Indoor + outdoor pools, 1,000sqm spa, restaurant Mummùlo with garden dining, bar. Free shuttle to Le Tamerici private beach club (8km, admission charged separately). Rural, 5km from Monopoli — 10-min private driver for evenings. Rate estimate; confirm directly.</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-badge">Good · Near Ostuni · Boutique Masseria</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Masseria Cervarolo</div>
+          <div class="scenario-tagline">Ostuni area · 4-star boutique masseria · 17th-century estate, 6km from Ostuni</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,711</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging — 3 rooms × ~$303/night × 7 nights ÷ 6 people</span><span class="line-val">$1,061</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,650</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,711</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on transatlantic legs (personal)</span><span class="upg-val">+$1,200/pp → $4,911</span></div>
+        <div class="scenario-note">Two pool areas, one set in a natural stone amphitheater — the standout feature. Named chef, daily-changing farm-to-table tasting menu. Bar. 17 rooms including some in trulli stone huts. Boutique and unhurried rather than resort-scale. Rural — 6km from Ostuni (10-min driver for evenings). No beach access; 14km to coast. Rate ~€275/night (~$303); confirm directly.</div>
+      </div>
+    </div>
   </div>
 
   <div class="callout warn">
     <div class="callout-icon">⚠️</div>
-    <div class="callout-text"><strong>What's still an estimate, not a quote</strong> Other than the Cala Ponte lodging and the flight lines, costs are built from current market listings, not firm bookings. Flight prices (~$5,300 economy / ~$12,800 premium economy, for 6) are from live June 2026 search results; 2027 schedules haven't been published yet and prices will move. Checked bag fees aren't confirmed and may add to the flight totals. Non-flight costs haven't gone through Seasen yet — happy to loop her in for a formal agent quote.</div>
+    <div class="callout-text"><strong>What's confirmed vs. estimated</strong> Cala Ponte's rate ($373/room/night) is confirmed from the current Marriott member rate listing. Torre Coccaro's rate ($517/night) is from the 2024 published rate sheet — 2027 TBD. All other lodging rates are current-market estimates; 2027 pricing hasn't been released. Flight prices (~$5,400 for 6 in economy, $900/pp) are from live June 2026 Lufthansa fares; 2027 schedules haven't opened yet and prices will move. Bag fees not yet confirmed.</div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">✈️</div>
+    <div class="callout-text"><strong>Premium economy is a personal add-on, not a group decision</strong> The transatlantic legs — RDU→Frankfurt (~8.25 hr) and Munich→Newark (~9.5–10 hr) — are the ones worth considering an upgrade. Premium economy means a dedicated cabin, wider seat, real recline, upgraded meals. It's +$1,200/pp and booked on your own ticket. Anyone who wants it adds it without changing what anyone else pays. Everyone lands together regardless.</div>
   </div>
 
   <hr class="divider">
   <div class="section-header"><span class="section-num">02</span><h2>Getting There — Flights</h2></div>
-  <p class="section-desc">No nonstop from RDU to Bari — every option requires connections. Based on live June 2026 pricing, the best option found is Lufthansa routing: outbound via Frankfurt, return via Munich and Newark. ~$5,300 for 6 in economy (~$883/pp); ~$12,800 for 6 if upgrading the two transatlantic legs to premium economy (+$1,200/pp). Note: outbound has 1 stop (Frankfurt), return has 2 stops (Munich + Newark).</p>
+  <p class="section-desc">No nonstop from RDU to Bari — one or two connections required. Best current option based on live June 2026 pricing: Lufthansa outbound via Frankfurt (1 stop), return via Munich + Newark (2 stops). May 2027 schedules not yet open; watch for releases around June–July 2026.</p>
 
   <div class="route-card">
-    <div class="route-card-badge">⭐ Best Value Found — Lufthansa (via FRA outbound / MUC+EWR return)</div>
+    <div class="route-card-badge">⭐ Best Value Found — Lufthansa (via FRA outbound / MUC + EWR return)</div>
     <div class="route-card-body">
       <div class="route-card-title">RDU → FRA → BRI &nbsp;/&nbsp; BRI → MUC → EWR → RDU</div>
-      <div class="route-card-sub">Lufthansa · ~$883/pp economy (~$5,300 for 6) · +$1,200/pp to upgrade transatlantic legs to premium economy (~$12,800 for 6)</div>
-
+      <div class="route-card-sub">Lufthansa · ~$900/pp economy (~$5,400 for 6, base fare) · +$1,200/pp to upgrade transatlantic legs to premium economy</div>
       <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Outbound — 1 stop</div>
       <div class="route-flow">
-        <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">afternoon</div></div>
+        <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">afternoon/eve</div></div>
         <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">~8.25 hr</div></div>
         <div class="route-node"><div class="iata">FRA</div><div class="city">Frankfurt</div><div class="time">morning +1</div></div>
         <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="flight-note">~2 hr</div></div>
         <div class="route-node"><div class="iata">BRI</div><div class="city">Bari</div><div class="time">midday +1</div></div>
       </div>
-
       <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Return — 2 stops</div>
       <div class="route-flow">
         <div class="route-node"><div class="iata">BRI</div><div class="city">Bari</div><div class="time">morning</div></div>
         <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="flight-note">~2 hr</div></div>
         <div class="route-node"><div class="iata">MUC</div><div class="city">Munich</div><div class="time">midday</div></div>
-        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">~9.5-10 hr</div></div>
+        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">~9.5–10 hr</div></div>
         <div class="route-node"><div class="iata">EWR</div><div class="city">Newark</div><div class="time">afternoon</div></div>
         <div class="route-arrow"><div class="flight-label">domestic</div><div class="arrow-line"></div><div class="flight-note">~1.5 hr</div></div>
         <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">evening</div></div>
       </div>
-
       <div class="route-stats">
         <div class="route-stat"><div class="stat-label">Outbound stops</div><div class="stat-val">1</div><div class="stat-sub">via Frankfurt</div></div>
         <div class="route-stat"><div class="stat-label">Return stops</div><div class="stat-val">2</div><div class="stat-sub">via Munich + Newark</div></div>
-        <div class="route-stat"><div class="stat-label">Economy / person</div><div class="stat-val">~$883</div><div class="stat-sub">~$5,300 for 6, base fare</div></div>
-        <div class="route-stat"><div class="stat-label">Premium eco upgrade</div><div class="stat-val">+$1,200/pp</div><div class="stat-sub">~$12,800 for 6 total</div></div>
+        <div class="route-stat"><div class="stat-label">Economy / person</div><div class="stat-val">~$900</div><div class="stat-sub">~$5,400 for 6, base fare</div></div>
+        <div class="route-stat"><div class="stat-label">Premium eco add-on</div><div class="stat-val">+$1,200/pp</div><div class="stat-sub">transatlantic legs only</div></div>
       </div>
     </div>
   </div>
 
-  <div class="callout warn">
-    <div class="callout-icon">🧳</div>
-    <div class="callout-text"><strong>Checked bag fees not yet confirmed</strong> The ~$5,300 economy figure is the base fare. Lufthansa's checked bag policy on transatlantic itineraries varies by fare class — first bag is often included in economy on intercontinental routes, but confirm when booking. If fees apply, budget an additional ~$60-100/pp round trip.</div>
+  <div class="callout tip">
+    <div class="callout-icon">👀</div>
+    <div class="callout-text"><strong>Watch for: United Newark–Bari nonstop</strong> United operated a seasonal nonstop EWR–BRI in summer 2026. If they re-announce it for summer 2027, it cuts the return to 1 stop (BRI→EWR→RDU) and would likely be the preferred routing — simpler and potentially better-priced. Watch for fall 2026 schedule announcements.</div>
   </div>
 
-  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 10px;">Cabin options — transatlantic legs</div>
+  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 10px;">Cabin comparison — transatlantic legs</div>
   <div class="cabin-table-wrap">
     <table class="cabin-table">
       <thead><tr><th>Cabin</th><th>What you get</th><th>Cost</th><th>Notes</th></tr></thead>
       <tbody>
         <tr class="recommended-row">
-          <td><div class="cabin-name">Economy <span class="cabin-badge rec">In estimates</span></div><div class="cabin-seat">Standard seat, ~31" pitch</div></td>
-          <td>Standard recline seat, meals, IFE — fine for the crossing, plenty of people do it</td>
-          <td>~$883/pp r/t · ~$5,300 for 6</td>
-          <td>What's priced in the scenario totals above. The short hops (RDU→FRA, BRI→MUC, EWR→RDU) are all under 2.5 hours — economy is fine for those regardless.</td>
+          <td><div class="cabin-name">Economy <span class="cabin-badge rec">Priced in estimates</span></div><div class="cabin-seat">Standard seat, ~31" pitch</div></td>
+          <td>Standard recline, meals, IFE — fine for an overnight crossing; plenty of people do it and arrive just fine</td>
+          <td>~$900/pp r/t · ~$5,400 for 6</td>
+          <td>What's priced in all five scenarios above. Short hops (RDU→FRA, BRI→MUC, EWR→RDU) are all under 2.5 hours — economy on those regardless.</td>
         </tr>
         <tr>
-          <td><div class="cabin-name">Premium Economy <span class="cabin-badge premium">Individual upgrade</span></div><div class="cabin-seat">Dedicated cabin, wider seat, more recline</div></td>
-          <td>Separate cabin, wider seat, more recline, upgraded meals and service — not just extra legroom</td>
-          <td>+$1,200/pp · ~$12,800 for 6 total</td>
-          <td>Applies to the two long legs: RDU→FRA (~8.25 hr) and MUC→EWR (~9.5-10 hr). Booked individually — doesn't affect anyone else's cost.</td>
+          <td><div class="cabin-name">Premium Economy <span class="cabin-badge premium">Personal upgrade</span></div><div class="cabin-seat">Dedicated cabin, wider seat, real recline</div></td>
+          <td>Separate cabin from economy, wider seat, real recline, upgraded meals and service — not just extra legroom</td>
+          <td>+$1,200/pp · booked individually</td>
+          <td>Applies to the two long legs: RDU→FRA (~8.25 hr) and MUC→EWR (~9.5–10 hr). Book on your own ticket; doesn't change what anyone else pays.</td>
         </tr>
         <tr>
           <td><div class="cabin-name">Business Class</div><div class="cabin-seat">Lie-flat, direct aisle access</div></td>
-          <td>Lie-flat seat, priority boarding, lounge access, full bedding</td>
-          <td>Significant premium — personal upgrade only</td>
-          <td>Booked individually. Doesn't affect the shared group cost.</td>
+          <td>Lie-flat, lounge access, priority boarding, full bedding</td>
+          <td>Significant premium — personal only</td>
+          <td>Booked individually. No effect on shared group cost.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="callout tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>When to book</strong> The 2027 international schedule opens ~11 months out — May 2027 flights should appear around June–July 2026. Book everyone on the same flights first; anyone upgrading cabin class can do so on their own ticket. Everyone lands together regardless.</div>
-  </div>
-
-  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 12px;">Other carriers worth checking</div>
+  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 10px;">Other carriers worth checking</div>
   <div class="alt-grid">
     <div class="alt-card">
       <div class="carrier">Lufthansa Group</div>
       <div class="hub">via Frankfurt / Munich / Vienna / Zurich</div>
       <div class="route-line">RDU <span class="arrow">→</span> FRA <span class="arrow">→</span> BRI</div>
       <div class="route-line">BRI <span class="arrow">→</span> MUC <span class="arrow">→</span> EWR <span class="arrow">→</span> RDU</div>
-      <div class="note">Current best-priced option found. Austrian Airlines and Swiss are also Lufthansa Group and may offer similar or cheaper itineraries through Vienna or Zurich.</div>
+      <div class="note">Current best-priced option found. Austrian Airlines and Swiss are also Lufthansa Group and may offer similar itineraries through Vienna or Zurich.</div>
     </div>
     <div class="alt-card">
       <div class="carrier">Air France</div>
       <div class="hub">via Paris CDG</div>
       <div class="route-line">RDU <span class="arrow">→</span> CDG <span class="arrow">→</span> BRI</div>
       <div class="route-line">BRI <span class="arrow">→</span> CDG <span class="arrow">→</span> RDU</div>
-      <div class="note">One of the few single-carrier full-route options with 1 stop each way. Premium economy (Voyageur cabin) is a solid product. Worth comparing price.</div>
+      <div class="note">One of the few options with 1 stop each way throughout. Premium economy (Voyageur cabin) is a solid product. Worth comparing price when schedules open.</div>
     </div>
     <div class="alt-card">
       <div class="carrier">United (if 2027 route confirmed)</div>
-      <div class="hub">via Newark</div>
+      <div class="hub">via Newark EWR</div>
       <div class="route-line">RDU <span class="arrow">→</span> EWR <span class="arrow">→</span> BRI</div>
       <div class="route-line">BRI <span class="arrow">→</span> EWR <span class="arrow">→</span> RDU</div>
-      <div class="note">United ran a nonstop Newark–Bari in summer 2026. If they re-announce it for 2027, it simplifies the return to 1 stop. Watch for fall 2026 schedule announcements.</div>
+      <div class="note">Operated EWR–BRI nonstop in summer 2026. If re-confirmed for 2027, this becomes the preferred routing — 1 stop each way. Watch for the fall 2026 schedule announcement.</div>
     </div>
   </div>
 
   <hr class="divider">
-  <div class="section-header"><span class="section-num">03</span><h2>Where We'd Stay</h2></div>
-  <p class="section-desc">One base for all 7 nights keeps everything within a 20-40 minute drive: the trulli towns, the Adriatic beaches, and day trips to Lecce or Matera. One hotel, no repacking.</p>
-  <div class="lodging-grid">
-    <div class="lodging-card">
-      <h4>5-Star Resort Hotel</h4>
-      <div class="ltag">Best</div>
-      <p>A polished, full-service hotel with a spa, pool(s), multiple dining/bar options, and on-site boat excursions. A destination in itself on the chill days. Cala Ponte (below) is the priced example for this tier.</p>
-      <p>$8,000 total for 3 rooms, 7 nights (real Cala Ponte B&amp;B member rate) → $1,333pp.</p>
+  <div class="section-header"><span class="section-num">03</span><h2>The Five Properties</h2></div>
+  <p class="section-desc">All five have pools, restaurants, and bars. What varies is location (rural countryside vs. coastal/walkable), scale, and how the chill days feel.</p>
+
+  <div class="callout info">
+    <div class="callout-icon">🫒</div>
+    <div class="callout-text"><strong>A word on Puglia geography</strong> Masserias — the traditional fortified farmhouses that define this region — are always in the countryside. They're never walkable to a town or restaurant; that's not a flaw, it's the format. You're in the olive groves with nowhere to be, and a private driver handles every evening dinner run (already in the costs). The one exception in this list: La Sommità sits inside Ostuni's pedestrian historic center — out the front door and you're in the lanes.</div>
+  </div>
+
+  <div class="prop-tier-label">Best</div>
+  <div class="prop-grid-1">
+    <div class="prop-card best-prop">
+      <h4>Masseria Torre Coccaro</h4>
+      <span class="prop-tier-tag">Best · Savelletri di Fasano · Leading Hotels of the World · ~$517/room/night</span>
+      <p>A 16th-century fortified farmhouse turned full-service luxury resort — the option that resolves the tradeoffs in the other tiers. Aveda spa set in natural caves (Turkish bath, sauna, indoor pool, treatments). Two pools. Private beach club via free shuttle May through September. Free shuttle to Savelletri, a small fishing village with excellent seafood restaurants — so evenings out don't require advance planning. Restaurant Egnathia draws from the masseria's own organic farm. 44 rooms and suites, many with private gardens or plunge pools. Not in a town, but not isolated either.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🏊</span><span><b>Pools:</b> Large outdoor pool with sun loungers + heated indoor spa pool; poolside bar</span></div>
+        <div class="prop-fact"><span class="fi">🌊</span><span><b>Beach:</b> Free shuttle to Coccaro Beach Club (private sandy beach, restaurant, loungers) — 2.5 miles; May–Sept</span></div>
+        <div class="prop-fact"><span class="fi">🚐</span><span><b>Town access:</b> Free shuttle to Savelletri village (seafood dinners, casual atmosphere); 15 min to Fasano town</span></div>
+        <div class="prop-fact"><span class="fi">💆</span><span><b>Spa:</b> Aveda spa in actual caves — Turkish bath, sauna, indoor pool, yoga, pilates, massages</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$517/room/night (2024 medium season published rate; 2027 pricing not yet released — confirm directly)</span></div>
+      </div>
     </div>
-    <div class="lodging-card">
-      <h4>Restored Masseria w/ Pool</h4>
-      <div class="ltag">Better</div>
-      <p>A converted farmhouse estate with a real pool, breakfast included, comfortable beds and AC, and a lounge or terrace built for evening cocktails and a deck of cards. This is the format most local guides recommend for groups.</p>
-      <p>Roughly $6,200–7,000 total for 7 nights, split 6 ways.</p>
+  </div>
+
+  <div class="prop-tier-label">Better — Two options</div>
+  <div class="prop-grid-2">
+    <div class="prop-card better-prop">
+      <h4>Cala Ponte, Tribute Portfolio</h4>
+      <span class="prop-tier-tag">Better · Polignano a Mare · Marriott 5-star resort · $373/room/night (confirmed)</span>
+      <p>A full-service 5-star resort on the Adriatic coast near Polignano — the right call if pool days and easy access to one of Puglia's most spectacular towns are the priority. Hedoné restaurant, Otium lounge bar (built for long evenings). 58 rooms. Polignano centro storico is 2.5km away — 5-min tuk-tuk, or a pleasant 20-min walk back after dinner. Marina right next door, making it the natural departure point for the boat day.</p>
+      <p><em>Pick this if:</em> you want a proper resort pool to lounge at all day and easy access to Polignano's clifftop old town and dramatic coastline.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🏊</span><span><b>Pool:</b> Full outdoor resort pool with sun loungers and bar — the real deal for chill days</span></div>
+        <div class="prop-fact"><span class="fi">🌊</span><span><b>Beach:</b> 1km walk to San Vito public beach; Cala Ponte marina immediately adjacent</span></div>
+        <div class="prop-fact"><span class="fi">🚶</span><span><b>Town access:</b> 2.5km from Polignano centro storico — 5-min tuk-tuk (~$5/pp) or 20-min walk back</span></div>
+        <div class="prop-fact"><span class="fi">⚠️</span><span><b>Caveat:</b> Some rooms have SS16 highway noise — request garden-view rooms away from the road at booking</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> $373/room/night, B&amp;B, garden-view king, 7+ nights — confirmed from current Marriott listing ($7,833 total)</span></div>
+      </div>
     </div>
-    <div class="lodging-card">
-      <h4>Boutique Hotel / B&amp;B</h4>
-      <div class="ltag">Good</div>
-      <p>A well-rated small hotel or B&amp;B in or near Ostuni/the Valle d'Itria, breakfast included, simple and comfortable. Less lounging-at-the-property time, but still fully taken care of — no cooking, no driving.</p>
-      <p>Roughly $4,000–4,600 total for 7 nights, split 6 ways.</p>
+    <div class="prop-card better-prop">
+      <h4>La Sommità Relais &amp; Châteaux</h4>
+      <span class="prop-tier-tag">Better · Ostuni centro storico · Relais &amp; Châteaux · ~$400/room/night (est.)</span>
+      <p>A 16th-century palazzo at the very top of Ostuni's pedestrian historic center — the only option in any tier where you step out the front door into a town. Restaurants, bars, the famous piazza, and the whitewashed maze of medieval alleys are all on foot. Michelin-starred Cielo restaurant on-site. Tuk-tuk service for late nights. 15 elegantly restored rooms with vaulted stone ceilings and cross-arched windows. Turkish hammam spa.</p>
+      <p><em>Pick this if:</em> evening independence matters more than pool real estate — the ability to wander out spontaneously for a spritz without calling a driver.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🏊</span><span><b>Pool:</b> Small pool + sun terraces with views over Ostuni's rooftops to the Adriatic — a dip, not a lounge day</span></div>
+        <div class="prop-fact"><span class="fi">🌊</span><span><b>Beach:</b> No on-property beach; beach club passes available ~12km away (private driver)</span></div>
+        <div class="prop-fact"><span class="fi">🚶</span><span><b>Town access:</b> Fully walkable — inside Ostuni's pedestrian zone. Hotel tuk-tuk service late nights.</span></div>
+        <div class="prop-fact"><span class="fi">🍽️</span><span><b>Restaurant:</b> Michelin-starred Cielo on-site; the entirety of Ostuni's dining scene is also on foot</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$400/room/night (estimate; confirm directly)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop-tier-label">Good — Two options</div>
+  <div class="prop-grid-2">
+    <div class="prop-card">
+      <h4>Il Melograno</h4>
+      <span class="prop-tier-tag">Good · Near Monopoli · Relais &amp; Châteaux · ~$242/room/night (est.)</span>
+      <p>The first masseria in Italy to welcome guests — more than 400 years of history, set among ancient olive trees on the edge of Monopoli. Indoor and outdoor pools. A 1,000sqm spa. Restaurant Mummùlo with garden and courtyard dining. Bar. Free shuttle to Le Tamerici private beach club. Full Relais &amp; Châteaux quality — notably, May is their cheapest season, which is exactly when we'd be there. Rural, 5km from Monopoli; private driver for evenings out.</p>
+      <p><em>Pick this if:</em> you want the complete spa and beach club experience in the Good tier, and the estate's deep history and character appeal.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🏊</span><span><b>Pools:</b> Outdoor seasonal pool + heated indoor spa pool; sun loungers; poolside bar</span></div>
+        <div class="prop-fact"><span class="fi">🌊</span><span><b>Beach:</b> Free shuttle to Le Tamerici private beach club (8km; beach admission charged separately)</span></div>
+        <div class="prop-fact"><span class="fi">🚐</span><span><b>Town access:</b> Rural — 5km from Monopoli (10-min private driver for evenings)</span></div>
+        <div class="prop-fact"><span class="fi">💆</span><span><b>Spa:</b> 1,000sqm facility — treatment rooms, Turkish bath, sauna, indoor pool (treatments at surcharge)</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$242/room/night (May est.; typical range $220–280 — confirm directly; May is their low season)</span></div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <h4>Masseria Cervarolo</h4>
+      <span class="prop-tier-tag">Good · Near Ostuni · 4-star Boutique Masseria · ~$303/room/night (est.)</span>
+      <p>A 17th-century masseria six kilometers from Ostuni with a pool set in a natural stone amphitheater — one of the more striking pool settings in the region. Named chef, daily-changing farm-to-table tasting menu. Bar. 17 rooms including some in trulli stone huts. Boutique and unhurried — closer to a well-run private estate than a resort. Rural, no beach access. The choice for people who want the most authentic countryside feel and care most about the food.</p>
+      <p><em>Pick this if:</em> the farm-to-table dinners and intimate masseria atmosphere are the priority over resort scale or beach access.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🏊</span><span><b>Pools:</b> Two pool areas; one set in a natural stone amphitheater — the standout physical feature of the property</span></div>
+        <div class="prop-fact"><span class="fi">🌊</span><span><b>Beach:</b> No beach access; 14km to coast (private driver needed — not in shared cost estimates)</span></div>
+        <div class="prop-fact"><span class="fi">🚐</span><span><b>Town access:</b> Rural — 6km from Ostuni (10-min private driver for evenings)</span></div>
+        <div class="prop-fact"><span class="fi">🍽️</span><span><b>Restaurant:</b> Named chef, daily tasting menus; wine and olive oil tasting evenings on-site</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$303/room/night (~€275/night; estimate — confirm directly)</span></div>
+      </div>
     </div>
   </div>
 
   <hr class="divider">
-  <div class="section-header"><span class="section-num">04</span><h2>Example Properties We're Considering</h2></div>
-  <p class="section-desc">Real, named examples pulled from current research — not all are bookings yet. Helps make the tiers concrete.</p>
-  <div class="lodging-grid">
-    <div class="lodging-card">
-      <h4>Cala Ponte, a Tribute Portfolio Hotel</h4>
-      <div class="ltag">Best — Priced</div>
-      <p>5-star Marriott property right in Polignano a Mare — pool, spa, Hedoné restaurant, Otium lounge bar (cocktails + that evening-hangout vibe), and they run their own boat excursions from the same stretch of coast as our boat day. <strong>$373/night/room, garden-view king, B&amp;B member rate for 7+ nights → $7,833 for 3 rooms, 7 nights</strong> (used as $8,000 in the Best-tier total). One caveat worth knowing: a recent TripAdvisor review flagged the hotel's location next to a busy highway, with noise audible from some rooms/balconies — worth asking about room placement when booking.</p>
-    </div>
-    <div class="lodging-card">
-      <h4>Masseria Il Frantoio</h4>
-      <div class="ltag">Better — Masseria</div>
-      <p>Historic 17th-century working masseria near Ostuni, rooms from around $200/night, citrus and olive groves, a well-regarded set-menu dinner with an estate tour included. <strong>Vs. Cala Ponte:</strong> smaller and more intimate (a handful of rooms vs. a full resort), one dining venue instead of several, no spa or lounge bar — but roughly half the nightly cost and a more authentic, working-farm character. Cala Ponte is the polished resort experience; Il Frantoio is the storied-property experience.</p>
-    </div>
-    <div class="lodging-card">
-      <h4>Masseria Cervarolo / Masseria La Carrube</h4>
-      <div class="ltag">Better — Masseria</div>
-      <p>Both in the $200/night range per local guides, countryside settings in the Valle d'Itria, pools, breakfast included. Solid Better-tier candidates worth getting direct quotes from.</p>
-    </div>
-    <div class="lodging-card">
-      <h4>Borgo Canonica</h4>
-      <div class="ltag">Good — Boutique</div>
-      <p>Trulli-style boutique stay in the Valle d'Itria countryside, around $200–250/night, well-reviewed and charming without resort pricing.</p>
-    </div>
-    <div class="lodging-card">
-      <h4>B&amp;B Murex (Bari) or similar in Ostuni</h4>
-      <div class="ltag">Good — B&amp;B</div>
-      <p>Smaller, well-rated B&amp;Bs in Bari or central Ostuni run roughly $100-150/night — useful as a Good-tier benchmark, especially if the group prefers being in-town over countryside.</p>
-    </div>
-  </div>
-
-  <div class="callout tip" style="margin-top:16px;">
-    <div class="callout-icon">✨</div>
-    <div class="callout-text"><strong>Nicer than the Tribute? Yes — beyond Marriott, Puglia's actual top tier</strong> Cala Ponte is a genuinely good 5-star, but it's mid-pack among Puglia's named luxury properties, not the ceiling. If "nicest possible" matters more than Marriott status, these consistently top the rankings: <strong>Borgo Egnazia</strong> (Savelletri) — the big one: Michelin-starred Due Camini, four pools, two beach clubs, a golf course; rates start around $317/night for an entry room but climb well beyond that for nicer categories in May. <strong>Masseria San Domenico</strong> (Savelletri) — the most "rooted," historic masseria of the group, golf course, Aveda spa in natural caves, large saltwater pool. <strong>Masseria Torre Maizza</strong> — Rocco Forte's property, the most polished/refined of the bunch with beach club access. <strong>Masseria Torre Coccaro</strong> — restored farmhouse with its own private beach, Aveda spa. All four would likely price above Cala Ponte's $373/night rate in May — probably $450-700+/night/room depending on category.</div>
-  </div>
-
-  <hr class="divider">
-  <div class="section-header"><span class="section-num">05</span><h2>Where We'd Eat</h2></div>
-  <p class="section-desc">For the meals not at the property — a few well-reviewed, real options by town and time of day. Reservations recommended in May, especially for dinner.</p>
+  <div class="section-header"><span class="section-num">04</span><h2>Where We'd Eat</h2></div>
+  <p class="section-desc">Breakfasts at the property every morning. Everything else is out — a mix of dinners at the hotel on chill days and restaurants in town on excursion days, with one proper celebratory dinner. A few real, well-reviewed picks by category.</p>
   <div class="expect-grid">
     <div class="expect-card">
-      <h4>☕ Breakfast / Coffee</h4>
+      <h4>☕ Coffee &amp; Morning</h4>
       <ul>
-        <li><strong>Burro Café</strong> (Ostuni) — coffee, Viennese pastries, a relaxed start before a town day</li>
-        <li><strong>La Gilda</strong> at Taverna Gelosia (Ostuni) — a more substantial breakfast beyond the usual cornetto</li>
-        <li>Most masserie/hotels include breakfast on-site — easiest default on chill days</li>
+        <li>Breakfast included at the property every morning — no decisions required before coffee</li>
+        <li><strong>Burro Café</strong> (Ostuni) — excuse to wander if you're staying near town; Viennese pastries and proper espresso</li>
+        <li><strong>Caffè Garibaldi</strong> (Ostuni piazza) — local favorite on the main square; cornetto and cappuccino, people-watching included</li>
       </ul>
     </div>
     <div class="expect-card">
       <h4>🍽️ Lunch</h4>
       <ul>
-        <li><strong>Pescaria</strong> (Polignano a Mare) — Italy's first "fish fast food," casual seafood sandwiches, great for a boat-day-adjacent lunch</li>
-        <li><strong>Komera</strong> (Ostuni) — cute, breezy, good for a casual midday stop in town</li>
-        <li><strong>Sapere &amp; Sapori</strong> (Ostuni area) — orecchiette and local greens, simple and excellent</li>
+        <li><strong>Pescaria</strong> (Polignano a Mare) — Italy's first "fish fast food," casual seafood sandwiches and plates, perfect for a boat-day lunch in town</li>
+        <li><strong>Sapere &amp; Sapori</strong> (near Ostuni) — orecchiette with local greens, beautifully simple and good</li>
+        <li>Lunch aboard the boat — included in the full-day charter; the best lunch of the trip</li>
+        <li>Slow lunch in Locorotondo or Lecce on excursion days — let the driver suggest a local spot</li>
       </ul>
     </div>
     <div class="expect-card">
       <h4>🍷 Dinner</h4>
       <ul>
-        <li><strong>Grotta Palazzese</strong> (Polignano a Mare) — the iconic cave restaurant over the sea; a true splurge, book well ahead, ideal for the celebratory night</li>
-        <li><strong>Osteria del Tempo Perso</strong> (Ostuni) — dinner in a centuries-old grotto in the historic center, a must-do per nearly every local guide</li>
-        <li><strong>Il Posto Affianco</strong> (Ostuni) — modern Apulian plates plus a Neapolitan pizza menu, intimate and a little dressier</li>
-        <li><strong>Trattoria Le Zie</strong> (Lecce) — traditional, generous, beloved by locals — good fit for the Lecce day trip</li>
+        <li><strong>Grotta Palazzese</strong> (Polignano) — the cave restaurant over the sea; book far ahead; the celebratory dinner (~€130–200/pp; note this is above the $500/pp food budget and would be paid separately)</li>
+        <li><strong>Osteria del Tempo Perso</strong> (Ostuni) — dinner inside a medieval cave-grotto in the historic center; almost universally recommended by local guides</li>
+        <li><strong>Osteria Ricanatti</strong> (Ostuni) — the locals' pick; handmade pasta, unpretentious, great value</li>
+        <li><strong>Trattoria Le Zie</strong> (Lecce) — traditional, generous, beloved; the natural dinner after the Lecce excursion day</li>
       </ul>
     </div>
     <div class="expect-card">
-      <h4>🍸 Aperitivo / Evening</h4>
+      <h4>🍸 Aperitivo &amp; Evening</h4>
       <ul>
-        <li><strong>Borgo Antico Bistrot</strong> (Ostuni) — sweeping sunset views over the whitewashed rooftops, spritzes and shared boards</li>
-        <li><strong>Otium Lounge Bar</strong> (Cala Ponte, Polignano) — if staying there, the on-site lounge is built for exactly the cocktails-and-cards evening vibe</li>
-        <li>Otherwise, the property's own lounge/terrace is the default most nights, per the Costa Rica-style pacing</li>
+        <li><strong>Borgo Antico Bistrot</strong> (Ostuni) — sweeping sunset views over the whitewashed rooftops; spritzes and shared boards</li>
+        <li><strong>Otium Lounge Bar</strong> at Cala Ponte — on-site bar built for long evenings; the cocktails-and-cards spot if staying there</li>
+        <li>The property's own terrace or courtyard covers most evenings — every property on this list has outdoor lounge space and a bar</li>
       </ul>
     </div>
   </div>
 
   <hr class="divider">
-  <div class="section-header"><span class="section-num">06</span><h2>Suggested 7-Night Itinerary</h2></div>
-  <p class="section-desc">One hotel, 7 nights, used as a true home base — mixing excursion days with true chill days, same rhythm that worked so well on the Costa Rica trip. Private drivers handle every transfer and excursion; nobody's on the hook to drive. Evenings default to a quiet lounge, cocktails, and cards back at the property.</p>
+  <div class="section-header"><span class="section-num">05</span><h2>Suggested 7-Night Itinerary</h2></div>
+  <p class="section-desc">One hotel, 7 nights, true home base. Three excursion days, three chill days, one boat day — the same alternating rhythm as Costa Rica. Private drivers handle every transfer. Evenings default to the property lounge, cocktails, and cards.</p>
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-when">Day 1 — Wed, May 12</div>
-      <div class="timeline-title">✈️ Fly RDU → Bari, Check In</div>
-      <div class="timeline-desc">Depart Tue evening May 11 from RDU, connect through Frankfurt for the overnight transatlantic leg to Bari. Private driver meets the group at BRI for the ~45-60 min transfer straight to the hotel — check-in begins night 1 of 7.</div>
+      <div class="timeline-when">Tue, May 11 — evening departure from RDU</div>
+      <div class="timeline-title">✈️ Fly RDU → Frankfurt</div>
+      <div class="timeline-desc">Depart RDU in the afternoon or evening. Overnight transatlantic leg to Frankfurt, then a short connection into Bari — arrive midday May 12. Private driver meets the group at BRI arrivals for the 45-60 min transfer straight to the hotel.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 1 — Wed, May 12 · Arrive</div>
+      <div class="timeline-title">🛬 Check In — Recovery Afternoon</div>
+      <div class="timeline-desc">Arrive midday. Check in, find the pool, do nothing in particular. Light dinner at or near the property — easy first night after travel.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 2 — Thu, May 13 · Chill</div>
-      <div class="timeline-title">🏊 Recovery + Pool Day</div>
-      <div class="timeline-desc">Recovery day after the flight. Pool, sun, no agenda. Walk into the nearest village in the evening for dinner, or stay in if the property has a good restaurant.</div>
+      <div class="timeline-title">🏊 Full Recovery — Pool Day</div>
+      <div class="timeline-desc">No agenda. Pool, sun, whatever everyone needs after the overnight flight. Dinner out nearby or at the property.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 3 — Fri, May 14 · Excursion</div>
       <div class="timeline-title">🏘️ Alberobello &amp; Locorotondo</div>
-      <div class="timeline-desc">Private driver for the day. Morning in the trulli of Alberobello (go early, before tour buses), afternoon in Locorotondo for rooftop views and a slow lunch. Driver waits or returns on call.</div>
+      <div class="timeline-desc">Private driver for the day. Morning in the trulli of Alberobello (UNESCO-listed; go early before tour buses). Afternoon in Locorotondo for rooftop views and a slow lunch. Back to the property mid-afternoon; driver waits or returns on call.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 4 — Sat, May 15 · Excursion</div>
-      <div class="timeline-title">⛵ Private Boat Day — Polignano / Monopoli Coast</div>
-      <div class="timeline-desc">Driver transfer to the marina, then a full-day private charter exploring the sea caves, Lama Monachile, and Cala Corvino, with swim stops and an onboard aperitivo. Departs from Cala Ponte Marina (Polignano) or Margherita Pier (Monopoli).</div>
+      <div class="timeline-title">⛵ Private Boat Day — Sea Caves of Polignano</div>
+      <div class="timeline-desc">The centerpiece day. Private driver to the marina; full-day private charter on the Adriatic — sea caves, Lama Monachile, hidden coves between Polignano and Monopoli, swimming stops, aperitivo and lunch aboard. The taste of what the Greece catamaran trip would have been.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 5 — Sun, May 16 · Chill</div>
-      <div class="timeline-title">💆 Pool &amp; Spa Day at the Property</div>
-      <div class="timeline-desc">No driver, no itinerary. Pool, optional spa treatments (Best tier), a long lazy lunch on-site. This is the "read by the pool" day.</div>
+      <div class="timeline-title">💆 Pool &amp; Spa Day</div>
+      <div class="timeline-desc">No driver, no plan. Pool, optional spa treatments, long lunch at the property. The "read a book, do nothing" day.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 6 — Mon, May 17 · Excursion</div>
       <div class="timeline-title">🤍 Ostuni + Lecce</div>
-      <div class="timeline-desc">Private driver for a full day: Ostuni's whitewashed lanes in the morning, then on to Lecce for the baroque cathedral, Santa Croce, and pasticciotto pastries. Dinner out before the drive back. (Matera is a solid swap if the group prefers cave-dwellings over baroque churches.)</div>
+      <div class="timeline-desc">Private driver for a full day. Morning in Ostuni's whitewashed lanes. Afternoon in Lecce — baroque Santa Croce basilica, the cathedral, pasticciotto pastries. Dinner out in Lecce before the drive back. (Matera is a solid swap if cave-dwellings are preferred over baroque churches.)</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-when">Day 7 — Tue, May 18 · Chill</div>
-      <div class="timeline-title">🛋️ Last Full Day — Pool, Maybe a Market, Final Night</div>
-      <div class="timeline-desc">A last easy day at the property — pool, optional short stroll into a nearby village or olive oil tasting if anyone's restless. Lounge, cocktails, and cards for the final evening, last night at the hotel.</div>
+      <div class="timeline-title">🛋️ Last Full Day</div>
+      <div class="timeline-desc">Pool, optional olive oil tasting or market browse, no commitments. Final evening — the celebratory dinner if it hasn't happened yet (Grotta Palazzese, or Osteria del Tempo Perso). Cocktails and cards after.</div>
     </div>
     <div class="timeline-item final">
       <div class="timeline-dot"></div>
-      <div class="timeline-when">Day 8 — Wed, May 19</div>
-      <div class="timeline-title">🛫 Check Out + Fly Home</div>
-      <div class="timeline-desc">Checkout after breakfast, private driver to Bari airport. Short hop to Munich, then the long transatlantic leg to Newark, then connect home to RDU — back by evening.</div>
+      <div class="timeline-when">Day 8 — Wed, May 19 · Fly Home</div>
+      <div class="timeline-title">🛫 Check Out + BRI → Home</div>
+      <div class="timeline-desc">Checkout after breakfast. Private driver to Bari airport. Short hop to Munich, long transatlantic leg to Newark, connect home to RDU — back by evening.</div>
     </div>
   </div>
 
   <hr class="divider">
-  <div class="section-header"><span class="section-num">07</span><h2>What You're Getting</h2></div>
+  <div class="section-header"><span class="section-num">06</span><h2>What You're Getting</h2></div>
   <div class="expect-grid">
     <div class="expect-card">
       <h4>⛵ The Boat Day</h4>
       <ul>
-        <li>Private charter (not shared) — sailboat, motor yacht, or small catamaran depending on group preference</li>
-        <li>Skipper + hostess, aperitivo, snorkel gear and SUP typically included</li>
-        <li>Coastline from Polignano a Mare to Monopoli: sea caves, cliffs, swim stops in hidden coves</li>
-        <li>Full day (~7hrs) recommended for a group celebration, with lunch aboard on Better/Best</li>
+        <li>Private charter — just the 6 of us, no strangers onboard, no fixed schedule</li>
+        <li>Full day (~7 hours) on the Adriatic: limestone cliffs, sea caves, hidden coves between Polignano a Mare and Monopoli</li>
+        <li>Skipper + hostess, aperitivo, snorkeling gear and SUP included; lunch aboard on Better and Best tiers</li>
+        <li>The Greece catamaran spirit translated into one spectacular day on the water — swimming stops, crew handling everything</li>
       </ul>
     </div>
     <div class="expect-card">
-      <h4>🚐 Getting Around — Fully Driven</h4>
+      <h4>🚐 Getting Around — Nobody Drives</h4>
       <ul>
-        <li>No rental car, no designated driver — a private driver handles every airport transfer and excursion day</li>
-        <li>Comfortable minivan or sedan depending on tier, booked per excursion rather than for the whole week</li>
+        <li>Private minivan with driver handles every airport transfer, every excursion, and every evening dinner run</li>
+        <li>Nobody is the designated driver; wine at dinner is always on the table</li>
         <li>Chill days at the property need no transport at all</li>
-        <li>Better/Best tiers include evening car service for dinners out, so wine with dinner is never a problem</li>
+        <li>La Sommità guests walk to dinner; everyone else gets a 10–15 min ride</li>
       </ul>
     </div>
     <div class="expect-card">
-      <h4>🍝 The Food — All Out, No Cooking</h4>
+      <h4>🍝 The Food — No Cooking</h4>
       <ul>
-        <li>Every meal is at a restaurant, trattoria, or catered at the property — orecchiette, burrata from Andria, bombette in Cisternino, fresh Adriatic seafood</li>
-        <li>Breakfast included at the property on all three tiers</li>
-        <li>Reservations recommended in high season for sought-after restaurants</li>
+        <li>Breakfast included at the property every morning</li>
+        <li>Every other meal is at a restaurant or trattoria — orecchiette with cime di rapa, burrata from Andria, bombette in Cisternino, fresh Adriatic seafood</li>
+        <li>No grocery runs, no kitchen duty, no coordinating who owes who for dinner</li>
+        <li>Reservations recommended in May for the most-sought spots</li>
       </ul>
     </div>
     <div class="expect-card">
       <h4>🛋️ The Evenings</h4>
       <ul>
-        <li>Quiet lounge or terrace at the property most nights — cocktails, cards, low-key hang time, same vibe as Costa Rica</li>
-        <li>Masseria and resort properties (Better/Best) are built for exactly this — shaded courtyards, lounge furniture, a bar</li>
-        <li>Dinner out on excursion days, in or at the property on chill days</li>
+        <li>Quiet terrace or lounge at the property most nights — same rhythm as Costa Rica</li>
+        <li>Every property on this list has a bar, outdoor seating, and lounge furniture built for long evenings</li>
+        <li>Dinner out on excursion days, dinner in or nearby on chill days</li>
+        <li>May evenings in Puglia: warm, dry, sitting outside until late — genuinely as nice as it sounds</li>
       </ul>
     </div>
   </div>
 
   <hr class="divider">
-  <div class="section-header"><span class="section-num">08</span><h2>Don't Forget These</h2></div>
+  <div class="section-header"><span class="section-num">07</span><h2>Don't Forget These</h2></div>
   <div class="notes-grid">
-    <div class="note-item"><strong>🚐 Book Drivers Early</strong> Private driver demand peaks in May — worth locking in the boat-day transfer and the two excursion days as soon as we have firm dates.</div>
-    <div class="note-item"><strong>💳 Cash &amp; Currency</strong> Italy uses euros. Cards are widely accepted, but small trattorias and markets often prefer cash — handy for driver tips too.</div>
-    <div class="note-item"><strong>😴 Cabin Upgrades</strong> Anyone upgrading the transatlantic legs to premium economy does so on their own ticket — everyone still lands together. Confirm bag fee policy when booking.</div>
-    <div class="note-item"><strong>🌊 Boat Day Weather Flexibility</strong> Sea conditions can shift the boat day — most operators offer free rescheduling, worth confirming when booking.</div>
-    <div class="note-item"><strong>🛂 Passports</strong> Valid 6+ months past return date (past Nov 19, 2027). Renew now if needed — processing backlogs have been long.</div>
-    <div class="note-item"><strong>📋 Next Steps</strong> Pick a tier, get real quotes on masseria/hotel and drivers (can loop in Seasen or book directly), and watch for 2027 flight schedules dropping around June–July 2026.</div>
+    <div class="note-item"><strong>✈️ Book Flights Soon</strong> May 2027 schedules open around June–July 2026 — that window is now. Book everyone on the same flights first; anyone upgrading cabin does so on their own ticket. Watch for United's EWR–BRI re-announcement in fall 2026.</div>
+    <div class="note-item"><strong>⛵ Book the Boat Day Early</strong> Good private charters in May fill months ahead. Once we have firm dates and a tier picked, lock the boat — it's the centerpiece of the trip and the thing most likely to sell out.</div>
+    <div class="note-item"><strong>🛂 Passports</strong> Must be valid at least 6 months past the return date — past November 19, 2027. Italy requires this. Renew now if needed; processing backlogs have been significant.</div>
+    <div class="note-item"><strong>💳 Cash &amp; Euros</strong> Cards are widely accepted, but small trattorias, markets, and driver tips often prefer cash. Bring some. ATMs are in every town center.</div>
+    <div class="note-item"><strong>🌡️ May Weather</strong> Low-to-mid 70s°F, full sun, low humidity. Pools open. Evenings warm. This is peak shoulder season for Puglia — ideal timing, before the summer crowds and heat.</div>
+    <div class="note-item"><strong>🌊 Boat Day Flexibility</strong> Sea conditions occasionally shift timing or route. Most operators offer free rescheduling — confirm when booking. Sea caves are best in the morning before afternoon chop.</div>
+    <div class="note-item"><strong>🍽️ Grotta Palazzese Note</strong> If the group wants the cave-restaurant-over-the-sea dinner, budget separately (~€130–200/pp; not in the $500/pp food estimate above). Book far ahead — it fills months out in May.</div>
+    <div class="note-item"><strong>📋 Next Steps</strong> Pick a tier, get real quotes on the lodging and drivers (can go through our travel advisor or book direct), and watch for 2027 flight schedules around June–July 2026.</div>
   </div>
 
 </div>
+
 <div class="footer">
-  Cost estimates prepared June 2026 from live flight search results and current villa/boat charter market rates · Not yet formal quotes<br>
-  Flight totals are base fares; checked bag fees not yet confirmed · All figures in USD · Euro-based costs converted at an estimated €1 = $1.10<br>
+  Cost estimates prepared June 2026 · Cala Ponte rate ($373/room/night) confirmed from current Marriott member rate listing; all other lodging rates are current-market estimates<br>
+  Torre Coccaro rate from 2024 published rate sheet — 2027 TBD · Flight prices from live June 2026 Lufthansa fares; 2027 schedules not yet open<br>
+  Bag fees not yet confirmed · All figures in USD · Euro-based costs converted at €1 = $1.10<br>
   Questions? Contact Ashley — she's coordinating everything.
 </div>
+
 </body>
 </html>
